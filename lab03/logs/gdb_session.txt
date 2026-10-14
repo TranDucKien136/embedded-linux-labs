@@ -1,0 +1,275 @@
+===== TERMINAL 1: QEMU target (gdbserver) =====
+/ # gdbserver :1234 /usr/bin/buggy_app
+Process /usr/bin/buggy_app created; pid = 68
+Listening on port 1234
+Remote debugging from host 10.0.2.2, port 55550
+=== Buggy App v1.0 – LAB-03 Debug Target ===
+[TEST1] Processing array of 5 elements
+Sum = 2043342486
+[TEST2] Creating message
+Message: "
+[TEST3] Integer calculation
+calculate(100000, 100000) = 1410065408
+Done.
+
+Child exited with status 0
+
+===== TERMINAL 2: HOST gdb-multiarch 17.1 (lenh co dau +) =====
++set print pretty on
++set architecture arm
+The target architecture is set to "arm".
++set sysroot /home/kien/embedded_lab3/rootfs/initramfs
++target remote localhost:1234
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+0x76fdee58 in _start () from /home/kien/embedded_lab3/rootfs/initramfs/lib/ld-linux-armhf.so.3
++break main
+Breakpoint 1 at 0x400732: file buggy_app.c, line 25.
++break process_data
+Breakpoint 2 at 0x400682: file buggy_app.c, line 6.
++break create_message
+Breakpoint 3 at 0x4006cc: file buggy_app.c, line 14.
++break calculate
+Breakpoint 4 at 0x400702: file buggy_app.c, line 21.
++info breakpoints
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x00400732 in main at buggy_app.c:25
+2       breakpoint     keep y   0x00400682 in process_data at buggy_app.c:6
+3       breakpoint     keep y   0x004006cc in create_message at buggy_app.c:14
+4       breakpoint     keep y   0x00400702 in calculate at buggy_app.c:21
++continue
+
+Breakpoint 1, main (argc=1, argv=0x7efffe94) at buggy_app.c:25
+25	int main(int argc, char *argv[]) {
++backtrace
+#0  main (argc=1, argv=0x7efffe94) at buggy_app.c:25
++info locals
+arr = {2130706295, 100, 0, 2130706279, 2048}
+msg = 0x76fdea3f <_dl_sysdep_start+366> "\230C\260\275\350\360\217c`\347\347\036K{D\333hZ\036\020@\030\032\004\360M\371\345\347\004\222\212FO\360 \fO\360\024\016\035F\036F\037F\032F\233F\231F\002\223\005\223\003\223\001\223\t\223\b\223\a\223\006\223"
++next
+26	    printf("=== Buggy App v1.0 – LAB-03 Debug Target ===\n");
++next
+28	    int arr[5] = {10, 20, 30, 40, 50};
++next
+29	    printf("[TEST1] Processing array of 5 elements\n");
++print arr
+$1 = {10, 20, 30, 40, 50}
++print arr[0]@5
+$2 = {10, 20, 30, 40, 50}
++print &arr[0]
+$3 = (int *) 0x7efffcf0
++print &arr[5]
+$4 = (int *) 0x7efffd04
++print arr[5]
+$5 = 2043342336
++continue
+
+Breakpoint 2, process_data (data=0x7efffcf0, len=5) at buggy_app.c:6
+6	    int sum = 0;
++backtrace
+#0  process_data (data=0x7efffcf0, len=5) at buggy_app.c:6
+#1  0x00400774 in main (argc=1, argv=0x7efffe94) at buggy_app.c:30
++info args
+data = 0x7efffcf0
+len = 5
++print len
+$6 = 5
++print data[0]@len
+$7 = {10, 20, 30, 40, 50}
++print &data[len]
+$8 = (int *) 0x7efffd04
++print data[len]
+$9 = 2043342336
++print/x data[len]
+$10 = 0x79caee00
++print/x __stack_chk_guard
+$11 = 0x79caee00
++next
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++next
+8	        sum += data[i];                 /* Out-of-bounds khi i==len */
++print i
+$12 = 0
++set can-use-hw-watchpoints 0
++watch i
+Watchpoint 5: i
++continue
+
+Watchpoint 5: i
+
+Old value = 0
+New value = 1
+0x004006a2 in process_data (data=0x7efffcf0, len=5) at buggy_app.c:7
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++print i
+$13 = 1
++print sum
+$14 = 10
++continue
+
+Watchpoint 5: i
+
+Old value = 1
+New value = 2
+0x004006a2 in process_data (data=0x7efffcf0, len=5) at buggy_app.c:7
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++print i
+$15 = 2
++continue
+
+Watchpoint 5: i
+
+Old value = 2
+New value = 3
+0x004006a2 in process_data (data=0x7efffcf0, len=5) at buggy_app.c:7
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++print i
+$16 = 3
++continue
+
+Watchpoint 5: i
+
+Old value = 3
+New value = 4
+0x004006a2 in process_data (data=0x7efffcf0, len=5) at buggy_app.c:7
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++print i
+$17 = 4
++continue
+
+Watchpoint 5: i
+
+Old value = 4
+New value = 5
+0x004006a2 in process_data (data=0x7efffcf0, len=5) at buggy_app.c:7
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++print i
+$18 = 5
++print sum
+$19 = 150
++print data[i]
+$20 = 2043342336
++print/x data[i]
+$21 = 0x79caee00
++delete 5
++next
+8	        sum += data[i];                 /* Out-of-bounds khi i==len */
++next
+7	    for (int i = 0; i <= len; i++) {   /* Bug: <= thay vi < */
++info locals
+i = 5
+sum = 2043342486
++print sum
+$22 = 2043342486
++print 10+20+30+40+50
+$23 = 150
++continue
+
+Breakpoint 3, create_message (text=0x400940 "Hello Embedded Linux") at buggy_app.c:14
+14	    char *buf = malloc(strlen(text) + 1);
++backtrace
+#0  create_message (text=0x400940 "Hello Embedded Linux") at buggy_app.c:14
+#1  0x00400788 in main (argc=1, argv=0x7efffe94) at buggy_app.c:33
++next
+15	    strcpy(buf, text);
++next
+16	    free(buf);
++print buf
+$24 = 0x422010 "Hello Embedded Linux"
++x/s buf
+0x422010:	"Hello Embedded Linux"
++next
+17	    return buf;   /* Bug: tra ve pointer da bi free */
++print buf
+$25 = 0x422010 "\"\004"
++x/s buf
+0x422010:	"\"\004"
++x/24xb buf
+0x422010:	0x22	0x04	0x00	0x00	0x5d	0x2f	0x74	0x06
+0x422018:	0x62	0x65	0x64	0x64	0x65	0x64	0x20	0x4c
+0x422020:	0x69	0x6e	0x75	0x78	0x00	0x00	0x00	0x00
++next
+18	}
++finish
+0x00400788 in main (argc=1, argv=0x7efffe94) at buggy_app.c:33
+33	    char *msg = create_message("Hello Embedded Linux");
+Value returned is $26 = 0x422010 "\"\004"
++print $r0
+$27 = 4333584
++x/s $r0
+0x422010:	"\"\004"
++continue
+
+Breakpoint 4, calculate (a=100000, b=100000) at buggy_app.c:21
+21	    int result = a * b;   /* Bug: a*b co the overflow int */
++backtrace
+#0  calculate (a=100000, b=100000) at buggy_app.c:21
+#1  0x004007b4 in main (argc=1, argv=0x7efffe94) at buggy_app.c:37
++info args
+a = 100000
+b = 100000
++print a
+$28 = 100000
++print b
+$29 = 100000
++print (long long)a * b
+$30 = 10000000000
++print 2147483647
+$31 = 2147483647
++step
+22	    printf("calculate(%d, %d) = %d\n", a, b, result);
++print result
+$32 = 1410065408
++print/x result
+$33 = 0x540be400
++print/x (long long)a * b
+$34 = 0x2540be400
++info registers pc sp lr
+pc             0x40070c            0x40070c <calculate+20>
+sp             0x7efffcc8          0x7efffcc8
+lr             0x4007b5            4196277
++info registers
+r0             0x186a0             100000
+r1             0x186a0             100000
+r2             0x186a0             100000
+r3             0x540be400          1410065408
+r4             0x7efffd00          2130705664
+r5             0x40099c            4196764
+r6             0x7efffe94          2130706068
+r7             0x7efffcc8          2130705608
+r8             0x76ffee58          1996484184
+r9             0x400729            4196137
+r10            0x41feac            4325036
+r11            0x76fff000          1996484608
+r12            0x4                 4
+sp             0x7efffcc8          0x7efffcc8
+lr             0x4007b5            4196277
+pc             0x40070c            0x40070c <calculate+20>
+cpsr           0x600f0030          1611595824
+fpscr          0x0                 0
++disassemble
+Dump of assembler code for function calculate:
+   0x004006f8 <+0>:	push	{r7, lr}
+   0x004006fa <+2>:	sub	sp, #16
+   0x004006fc <+4>:	add	r7, sp, #0
+   0x004006fe <+6>:	str	r0, [r7, #4]
+   0x00400700 <+8>:	str	r1, [r7, #0]
+   0x00400702 <+10>:	ldr	r3, [r7, #4]
+   0x00400704 <+12>:	ldr	r2, [r7, #0]
+   0x00400706 <+14>:	mul.w	r3, r2, r3
+   0x0040070a <+18>:	str	r3, [r7, #12]
+=> 0x0040070c <+20>:	ldr	r3, [r7, #12]
+   0x0040070e <+22>:	ldr	r2, [r7, #0]
+   0x00400710 <+24>:	ldr	r1, [r7, #4]
+   0x00400712 <+26>:	ldr	r0, [pc, #16]	@ (0x400724 <calculate+44>)
+   0x00400714 <+28>:	add	r0, pc
+   0x00400716 <+30>:	blx	0x400510 <printf@plt>
+   0x0040071a <+34>:	ldr	r3, [r7, #12]
+   0x0040071c <+36>:	mov	r0, r3
+   0x0040071e <+38>:	adds	r7, #16
+   0x00400720 <+40>:	mov	sp, r7
+   0x00400722 <+42>:	pop	{r7, pc}
+   0x00400724 <+44>:	muleq	r0, r12, r1
+End of assembler dump.
++continue
+[Inferior 1 (process 68) exited normally]

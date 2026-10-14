@@ -1,0 +1,8 @@
+perf_target;[unknown];__ieee754_log_fma 47287239
+perf_target;[unknown];__log 3442827
+perf_target;[unknown];heavy_compute 16519119
+perf_target;[unknown];io_intensive;___fprintf_chk;__vfprintf_internal;__printf_buffer;__printf_buffer_write;__printf_buffer_flush;__printf_buffer_has_failed;__printf_buffer_flush_to_file;_IO_new_file_overflow;_IO_new_do_write;new_do_write;_IO_new_file_write;__libc_write;__syscall_cancel;__internal_syscall_cancel;entry_SYSRETQ_unsafe_stack 2174608
+perf_target;[unknown];log@plt 6747670
+perf_target;[unknown];main 709487
+perf_target;_dl_start_user;_dl_start;_dl_start_final;_dl_sysdep_start;__tunables_init;get_next_env 500500
+perf_target;_dl_start_user;_dl_start;_dl_start_final;_dl_sysdep_start;dl_main;rtld_timer_accum;rtld_timer_stop;_dl_relocate_object;_dl_protect_relro;_dl_relocate_object_no_relro;elf_dynamic_do_Rela;elf_machine_rela;resolve_map;_dl_lookup_symbol_x;do_lookup_x 500500

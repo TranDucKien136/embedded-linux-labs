@@ -1,0 +1,17 @@
+Linux kien-Nitro-ANV15-52 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+Standard kernel (no RT patch)
+CONFIG_PREEMPT_BUILD=y
+CONFIG_ARCH_HAS_PREEMPT_LAZY=y
+# CONFIG_PREEMPT is not set
+CONFIG_PREEMPT_LAZY=y
+# CONFIG_PREEMPT_RT is not set
+CONFIG_PREEMPT_COUNT=y
+CONFIG_PREEMPTION=y
+CONFIG_PREEMPT_DYNAMIC=y
+CONFIG_PREEMPT_RCU=y
+CONFIG_HAVE_PREEMPT_DYNAMIC=y
+--- preempt mode dang chay (PREEMPT_DYNAMIC):
+[    0.109842] Dynamic Preempt: lazy
+--- CPU:
+16
+model name	: 13th Gen Intel(R) Core(TM) i7-13620H

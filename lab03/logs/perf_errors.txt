@@ -1,0 +1,4 @@
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.043 MB /home/kien/embedded_lab3/logs/perf.data (165 samples) ]
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.033 MB /home/kien/embedded_lab3/logs/perf_flame.data (41 samples) ]

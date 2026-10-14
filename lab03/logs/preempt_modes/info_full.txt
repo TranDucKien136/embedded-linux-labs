@@ -1,0 +1,4 @@
+Mon Oct 12 04:36:55 PM +07 2026
+Linux kien-Nitro-ANV15-52 7.0.0-34-generic #34-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:29:37 UTC 2026 x86_64 GNU/Linux
+cmdline: BOOT_IMAGE=/boot/vmlinuz-7.0.0-34-generic root=UUID=e14a6c53-8b35-41fe-9258-508502cdf8ee ro quiet splash preempt=full crashkernel=2G-4G:320M,4G-32G:512M,32G-64G:1024M,64G-128G:2048M,128G-:4096M
+[    0.049459] Dynamic Preempt: full

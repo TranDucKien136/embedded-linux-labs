@@ -1,0 +1,140 @@
+$ ls -la rootfs/initramfs/
+total 48
+drwxrwxr-x 11 kien kien 4096 Sep 19 10:47 .
+drwxrwxr-x  4 kien kien 4096 Sep 19 10:44 ..
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:44 bin
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:56 dev
+drwxrwxr-x  3 kien kien 4096 Sep 19 10:53 etc
+-rwxrwxr-x  1 kien kien   76 Oct 12 16:50 init
+drwxrwxr-x  3 kien kien 4096 Sep 19 10:44 lib
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:44 proc
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:44 sbin
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:44 sys
+drwxrwxr-x  2 kien kien 4096 Sep 19 10:44 tmp
+drwxrwxr-x  4 kien kien 4096 Sep 19 10:44 usr
+
+$ ls rootfs/initramfs/sbin
+acpid
+adjtimex
+arp
+blkid
+blockdev
+bootchartd
+depmod
+devmem
+fbsplash
+fdisk
+findfs
+freeramdisk
+fsck
+fsck.minix
+fstrim
+getty
+halt
+hdparm
+hwclock
+ifconfig
+ifdown
+ifenslave
+ifup
+init
+insmod
+ip
+ipaddr
+iplink
+ipneigh
+iproute
+iprule
+iptunnel
+klogd
+loadkmap
+logread
+losetup
+lsmod
+makedevs
+mdev
+mkdosfs
+mke2fs
+mkfs.ext2
+mkfs.minix
+mkfs.vfat
+mkswap
+modinfo
+modprobe
+nameif
+pivot_root
+poweroff
+raidautorun
+reboot
+rmmod
+route
+run-init
+runlevel
+setconsole
+slattach
+start-stop-daemon
+sulogin
+swapoff
+swapon
+switch_root
+sysctl
+syslogd
+tunctl
+udhcpc
+uevent
+vconfig
+watchdog
+zcip
+(bin/: 93 applet, sbin/: 71, usr/bin/: 175, usr/sbin/: 59)
+
+$ file rootfs/initramfs/bin/busybox
+rootfs/initramfs/bin/busybox: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), statically linked, BuildID[sha1]=e4a09d681bcfa51e3ec677bca1aaae75be6db213, for GNU/Linux 3.2.0, stripped
+
+$ arm-linux-gnueabihf-readelf -A rootfs/initramfs/bin/busybox | grep -E 'Tag_CPU|Tag_ARM|Tag_ABI'
+  Tag_CPU_name: "7-A"
+  Tag_CPU_arch: v7
+  Tag_CPU_arch_profile: Application
+  Tag_ARM_ISA_use: Yes
+  Tag_ABI_PCS_wchar_t: 4
+  Tag_ABI_FP_rounding: Needed
+  Tag_ABI_FP_denormal: Needed
+  Tag_ABI_FP_exceptions: Needed
+  Tag_ABI_FP_number_model: IEEE 754
+  Tag_ABI_align_needed: 8-byte
+  Tag_ABI_align_preserved: 8-byte, except leaf SP
+  Tag_ABI_enum_size: int
+  Tag_ABI_VFP_args: VFP registers
+  Tag_CPU_unaligned_access: v6
+
+$ ls -lh output/initramfs.cpio.gz && zcat output/initramfs.cpio.gz | cpio -t | head -30
+-rw-rw-r-- 1 kien kien 1.1M Oct 12 16:50 output/initramfs.cpio.gz
+.
+etc
+tmp
+init
+lib
+bin
+proc
+sbin
+usr
+sys
+dev
+dev/null
+dev/zero
+dev/console
+dev/random
+etc/passwd
+etc/init.d
+etc/inittab
+etc/hostname
+lib/arm-linux-gnueabihf
+bin/df
+bin/echo
+bin/conspy
+bin/egrep
+bin/mount
+bin/su
+bin/printenv
+bin/usleep
+bin/date
+bin/link

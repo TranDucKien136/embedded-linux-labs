@@ -1,0 +1,14 @@
+# /etc/inittab - BusyBox init configuration
+# Format: <id>:<runlevel>:<action>:<process>
+
+# Chay rcS khi boot (sysinit)
+::sysinit:/etc/init.d/rcS
+
+# Mo shell tren console (hoi Enter truoc khi mo)
+::askfirst:-/bin/sh
+
+# Xu ly Ctrl+Alt+Del
+::ctrlaltdel:/sbin/reboot
+
+# Cleanup truoc khi shutdown
+::shutdown:/bin/umount -a -r

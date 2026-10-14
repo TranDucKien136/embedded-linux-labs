@@ -1,0 +1,31 @@
+/home/kien/embedded_lab3/apps/perf_target: Segmentation fault
+
+ Performance counter stats for '/home/kien/embedded_lab3/apps/perf_target':
+
+                 3      context-switches                 #     71.2 cs/sec  cs_per_second     
+                 2      cpu-migrations                   #     47.4 migrations/sec  migrations_per_second
+               375      page-faults                      #   8894.4 faults/sec  page_faults_per_second
+             42.16 msec task-clock                       #      0.2 CPUs  CPUs_utilized       
+             3,223      cpu_core/branch-misses/          #      0.0 %  branch_miss_rate         (97.44%)
+        51,635,074      cpu_core/branches/               #   1224.7 M/sec  branch_frequency     (97.44%)
+        76,936,397      cpu_core/cpu-cycles/             #      1.8 GHz  cycles_frequency       (97.44%)
+       376,576,545      cpu_core/instructions/           #      4.9 instructions  insn_per_cycle  (97.44%)
+           347,033      cpu_atom/branch-misses/          #      3.3 %  branch_miss_rate         (2.26%)
+        10,873,744      cpu_atom/branches/               #    257.9 M/sec  branch_frequency     (2.56%)
+        69,220,946      cpu_atom/cpu-cycles/             #      1.6 GHz  cycles_frequency       (2.56%)
+        63,877,404      cpu_atom/instructions/           #      0.9 instructions  insn_per_cycle  (2.56%)
+             TopdownL1 (cpu_core)                        #      0.0 %  tma_bad_speculation    
+                                                         #      5.1 %  tma_frontend_bound       (97.44%)
+                                                         #     11.8 %  tma_backend_bound      
+                                                         #     83.1 %  tma_retiring             (97.44%)
+             TopdownL1 (cpu_atom)                        #      nan %  tma_backend_bound        (0.00%)
+                                                         #      nan %  tma_frontend_bound       (0.00%)
+                                                         #      nan %  tma_bad_speculation    
+                                                         #      nan %  tma_retiring             (0.00%)
+
+       0.182582282 seconds time elapsed
+
+       0.041683000 seconds user
+       0.002033000 seconds sys
+
+

@@ -1,0 +1,48 @@
+#!/bin/sh
+echo '[ LAB-03 ] Starting system initialization...'
+
+# Mount essential pseudo filesystems
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t tmpfs none /tmp
+mount -t devtmpfs none /dev 2>/dev/null || true
+
+# Populate /dev neu devtmpfs khong available
+[ -c /dev/console ] || mknod /dev/console c 5 1
+[ -c /dev/null    ] || mknod /dev/null c 1 3
+[ -c /dev/zero    ] || mknod /dev/zero c 1 5
+
+# Set hostname
+hostname embedded-lab3
+echo embedded-lab3 > /proc/sys/kernel/hostname
+
+# ═══ AUTO-LOAD KERNEL MODULE (tu LAB-02) ═══
+echo '[ LAB-03 ] Loading lab2_driver module...'
+if [ -f /lib/modules/5.15.0/lab2_driver.ko ]; then
+    if insmod /lib/modules/5.15.0/lab2_driver.ko; then
+        echo '[ LAB-03 ] lab2_driver loaded OK'
+        # devtmpfs co the da tao san /dev/lab2
+        [ -c /dev/lab2 ] || mknod /dev/lab2 c 240 0
+        chmod 666 /dev/lab2
+    else
+        echo '[ LAB-03 ] ERROR: insmod lab2_driver failed!'
+    fi
+else
+    echo '[ LAB-03 ] WARNING: lab2_driver.ko not found'
+fi
+
+# ═══ NETWORK cho GDB remote debug ═══
+# QEMU user-mode network: guest 10.0.2.15, gateway 10.0.2.2
+# Host ket noi vao gdbserver qua -net user,hostfwd=tcp::1234-:1234
+echo '[ LAB-03 ] Configuring network...'
+ifconfig lo 127.0.0.1 up
+if ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up; then
+    route add default gw 10.0.2.2
+    echo '[ LAB-03 ] eth0 = 10.0.2.15 (gdbserver: gdbserver :1234 <app>)'
+else
+    echo '[ LAB-03 ] WARNING: eth0 not available'
+fi
+
+echo '[ LAB-03 ] System initialization complete!'
+echo '  -> Debug tools : gdbserver, strace'
+echo '  -> Apps        : buggy_app, leaky_app_arm, perf_target_arm'

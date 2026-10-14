@@ -1,0 +1,15 @@
+    39.27%  [k] charge_memcg        [kernel.kallsyms]  -      -            
+    30.36%  [k] mas_empty_area_rev  [kernel.kallsyms]  -      -            
+               0x7d24c02f7f0b
+    30.36%  [k] update_cfs_group    [kernel.kallsyms]  -      -            
+               0x7d24c02f7f0b
+    58.57%  [.] __ieee754_log_fma               libm.so.6             -      -            
+    23.89%  [.] heavy_compute                   perf_target           -      -            
+    11.64%  [.] log@@GLIBC_2.29                 libm.so.6             -      -            
+     1.32%  [.] __log_finite@GLIBC_2.15@plt     libm.so.6             -      -            
+     0.82%  [k] count_memcg_events              [kernel.kallsyms]     -      -            
+     0.65%  [k] __task_pid_nr_ns                [kernel.kallsyms]     -      -            
+     0.65%  [.] log@plt                         perf_target           -      -            
+     0.46%  [k] blk_cgroup_congested            [kernel.kallsyms]     -      -            
+     0.42%  [k] __rmqueue_pcplist               [kernel.kallsyms]     -      -            
+     0.39%  [k] __cgroup_account_cputime_field  [kernel.kallsyms]     -      -            

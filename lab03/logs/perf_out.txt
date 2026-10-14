@@ -1,0 +1,196 @@
+perf_target   41033  3867.504516:     500500 cpu_core/cycles/P: 
+	    7087ee7dc68f get_next_env+0xaf (inlined)
+	    7087ee7dc68f __tunables_init+0xaf (inlined)
+	    7087ee7e7d6c _dl_sysdep_start+0x2c (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7e94e1 _dl_start_final+0x601 (inlined)
+	    7087ee7e94e1 _dl_start+0x601 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7e8348 _dl_start_user+0x0 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+
+perf_target   41033  3867.504751:     500500 cpu_core/cycles/P: 
+	    7087ee7d0bb0 do_lookup_x+0x120 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7d17ac _dl_lookup_symbol_x+0x12c (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7d6051 resolve_map+0x8b1 (inlined)
+	    7087ee7d6051 elf_machine_rela+0x8b1 (inlined)
+	    7087ee7d6051 elf_dynamic_do_Rela+0x8b1 (inlined)
+	    7087ee7d6051 _dl_relocate_object_no_relro+0x8b1 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7d9581 _dl_protect_relro+0x21 (inlined)
+	    7087ee7d9581 _dl_relocate_object+0x21 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7eb519 rtld_timer_stop+0x1d79 (inlined)
+	    7087ee7eb519 rtld_timer_accum+0x1d79 (inlined)
+	    7087ee7eb519 dl_main+0x1d79 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7e7dc6 _dl_sysdep_start+0x86 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7e94e1 _dl_start_final+0x601 (inlined)
+	    7087ee7e94e1 _dl_start+0x601 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7087ee7e8348 _dl_start_user+0x0 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+
+perf_target   41033  3867.505079:     709487 cpu_core/cycles/P: 
+	    65103478f3e0 main+0x4c (/home/kien/embedded_lab3/apps/perf_target)
+	       300000002 [unknown] ([unknown])
+
+perf_target   41033  3867.505535:     972451 cpu_core/cycles/P: 
+	    65103478f100 log@plt+0x0 (/home/kien/embedded_lab3/apps/perf_target)
+	40b2840000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.506048:    1119750 cpu_core/cycles/P: 
+	    7087ee7221dd __ieee754_log_fma+0x1d (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f3acd000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.506672:    1365521 cpu_core/cycles/P: 
+	    7087ee722210 __ieee754_log_fma+0x50 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f2244000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.507343:    1468890 cpu_core/cycles/P: 
+	    7087ee6dc10e __log+0xe (inlined)
+	40f1fb6000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.508091:    1637387 cpu_core/cycles/P: 
+	    65103478f100 log@plt+0x0 (/home/kien/embedded_lab3/apps/perf_target)
+	40f4a55000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.508898:    1767209 cpu_core/cycles/P: 
+	    65103478f2ca heavy_compute+0x6a (/home/kien/embedded_lab3/apps/perf_target)
+	40b61f0000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.509729:    1820519 cpu_core/cycles/P: 
+	    65103478f282 heavy_compute+0x22 (/home/kien/embedded_lab3/apps/perf_target)
+	40dc468000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.510600:    1907210 cpu_core/cycles/P: 
+	    7087ee7221c0 __ieee754_log_fma+0x0 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40ebbb6000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.511502:    1973937 cpu_core/cycles/P: 
+	    7087ee6dc10e __log+0xe (inlined)
+	40f66a1000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.512427:    2025174 cpu_core/cycles/P: 
+	    65103478f100 log@plt+0x0 (/home/kien/embedded_lab3/apps/perf_target)
+	40dc070000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.513369:    2064137 cpu_core/cycles/P: 
+	    7087ee7221dd __ieee754_log_fma+0x1d (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f11f8000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.514325:    2094173 cpu_core/cycles/P: 
+	    7087ee722227 __ieee754_log_fma+0x67 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40c3750000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.515292:    2117280 cpu_core/cycles/P: 
+	    7087ee7221dd __ieee754_log_fma+0x1d (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40eaaa6000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.516267:    2134849 cpu_core/cycles/P: 
+	    7087ee72229b __ieee754_log_fma+0xdb (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f83c5000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.517248:    2148358 cpu_core/cycles/P: 
+	    7087ee722260 __ieee754_log_fma+0xa0 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40e6afc000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.518233:    2158627 cpu_core/cycles/P: 
+	    7087ee72229b __ieee754_log_fma+0xdb (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f6b44000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.519223:    2166561 cpu_core/cycles/P: 
+	    7087ee72229b __ieee754_log_fma+0xdb (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40e40c6000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.520215:    2172826 cpu_core/cycles/P: 
+	    65103478f282 heavy_compute+0x22 (/home/kien/embedded_lab3/apps/perf_target)
+	40f59e4000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.521209:    2177274 cpu_core/cycles/P: 
+	    7087ee722286 __ieee754_log_fma+0xc6 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40e246c000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.522204:    2180926 cpu_core/cycles/P: 
+	    7087ee722286 __ieee754_log_fma+0xc6 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f4d98000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.523201:    2183630 cpu_core/cycles/P: 
+	    7087ee722260 __ieee754_log_fma+0xa0 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40e0af2000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.524199:    2185753 cpu_core/cycles/P: 
+	    7087ee722227 __ieee754_log_fma+0x67 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f3fbe000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.525198:    2187331 cpu_core/cycles/P: 
+	    7087ee72229b __ieee754_log_fma+0xdb (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40ddbf4000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.526244:    2188615 cpu_core/cycles/P: 
+	    7087ee7222b7 __ieee754_log_fma+0xf7 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f3424000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.527281:    2168899 cpu_core/cycles/P: 
+	    7087ee722227 __ieee754_log_fma+0x67 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40d93ac000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.528310:    2151116 cpu_core/cycles/P: 
+	    65103478f2b6 heavy_compute+0x56 (/home/kien/embedded_lab3/apps/perf_target)
+	40f16cd000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.529333:    2137530 cpu_core/cycles/P: 
+	    7087ee7221dd __ieee754_log_fma+0x1d (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40d1464000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.530350:    2127023 cpu_core/cycles/P: 
+	    7087ee72223e __ieee754_log_fma+0x7e (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40ee1f0000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.531364:    2118804 cpu_core/cycles/P: 
+	    7087ee722260 __ieee754_log_fma+0xa0 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40b44c0000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.532374:    2112658 cpu_core/cycles/P: 
+	    65103478f100 log@plt+0x0 (/home/kien/embedded_lab3/apps/perf_target)
+	40e85a8000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.533374:    2108091 cpu_core/cycles/P: 
+	    7087ee722227 __ieee754_log_fma+0x67 (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40f6b03000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.534336:    2106638 cpu_core/cycles/P: 
+	    7087ee72224c __ieee754_log_fma+0x8c (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40e1e80000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.535306:    2124170 cpu_core/cycles/P: 
+	    65103478f2a4 heavy_compute+0x44 (/home/kien/embedded_lab3/apps/perf_target)
+	40f38fe000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.536283:    2140259 cpu_core/cycles/P: 
+	    7087ee7221dd __ieee754_log_fma+0x1d (/usr/lib/x86_64-linux-gnu/libm.so.6)
+	40d896c000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.537265:    2152388 cpu_core/cycles/P: 
+	    65103478f2ca heavy_compute+0x6a (/home/kien/embedded_lab3/apps/perf_target)
+	40f1be7000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.538253:    2161889 cpu_core/cycles/P: 
+	    65103478f282 heavy_compute+0x22 (/home/kien/embedded_lab3/apps/perf_target)
+	40d2b8c000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.539243:    2169002 cpu_core/cycles/P: 
+	    65103478f2a4 heavy_compute+0x44 (/home/kien/embedded_lab3/apps/perf_target)
+	40f083c000000000 [unknown] ([unknown])
+
+perf_target   41033  3867.540236:    2174608 cpu_core/cycles/P: 
+	ffffffff918001c4 entry_SYSRETQ_unsafe_stack+0xa ([kernel.kallsyms])
+	    7087ee4a03e6 __internal_syscall_cancel+0xa6 (inlined)
+	    7087ee4a03e6 __syscall_cancel+0xa6 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee528c2e __libc_write+0x1e (inlined)
+	    7087ee49b105 _IO_new_file_write+0x35 (inlined)
+	    7087ee499bb0 new_do_write+0xc0 (inlined)
+	    7087ee499bb0 _IO_new_do_write+0xc0 (inlined)
+	    7087ee49a61c _IO_new_file_overflow+0x16c (inlined)
+	    7087ee464a96 __printf_buffer_flush_to_file+0x76 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee464795 __printf_buffer_has_failed+0x95 (inlined)
+	    7087ee464795 __printf_buffer_flush+0x95 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee464d89 __printf_buffer_write+0x69 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee46ddfc __printf_buffer+0x3bc (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee470768 __vfprintf_internal+0x248 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7087ee543f73 ___fprintf_chk+0xa3 (inlined)
+	    65103478f379 io_intensive+0x4f (/home/kien/embedded_lab3/apps/perf_target)
+	    6510506b0200 [unknown] ([unknown])
+

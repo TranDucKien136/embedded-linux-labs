@@ -1,0 +1,11 @@
+/ # dmesg | grep lab2
+lab2_driver: loading out-of-tree module taints kernel.
+lab2_driver: initializing module
+lab2_driver: /proc/lab2_info created
+lab2_driver: loaded, major=240
+lab2_driver: device opened (count=1)
+lab2_driver: received 17 bytes: [Hello dmesg test
+lab2_driver: device closed
+lab2_driver: device opened (count=2)
+lab2_driver: sent 17 bytes to user
+lab2_driver: device closed

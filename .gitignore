@@ -1,0 +1,38 @@
+# Ma nguon ben thu ba (tai lai tu trang chinh thuc)
+linux-*/
+u-boot-*/
+busybox-*/
+*.tar.xz
+*.tar.bz2
+*.tar.gz
+
+# File build ra
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+.*.cmd
+*.order
+Module.symvers
+zImage
+u-boot
+*.dtb
+*.cpio
+*.cpio.gz
+*.data
+*.data.old
+
+# Binary ung dung (lab03/apps)
+lab03/apps/buggy_app
+lab03/apps/leaky_app
+lab03/apps/leaky_app_fixed
+lab03/apps/leaky_app_arm
+lab03/apps/perf_target
+lab03/apps/perf_target_arm
+
+# De bai (tai lieu cua giang vien) va file tam
+*.docx
+run_tmp/
+*.swp

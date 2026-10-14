@@ -1,0 +1,29 @@
+$ export ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- KCFLAGS="-march=armv7-a -mfpu=vfpv3 -mfloat-abi=hard"
+$ arm-linux-gnueabihf-gcc -Q --help=target | grep march
+  -march=                     		armv7-a+fp
+
+$ make vexpress_defconfig
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+  HOSTCC  scripts/kconfig/expr.o
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#
+
+$ grep -E "CONFIG_ARCH_VEXPRESS|CONFIG_ARM_LPAE|CONFIG_CPU_V7" .config   (ban defconfig goc)
+CONFIG_ARCH_VEXPRESS=y
+CONFIG_ARCH_VEXPRESS_CORTEX_A5_A9_ERRATA=y
+CONFIG_ARCH_VEXPRESS_DCSCB=y
+CONFIG_ARCH_VEXPRESS_SPC=y
+CONFIG_ARCH_VEXPRESS_TC2_PM=y
+CONFIG_CPU_V7=y
+# CONFIG_ARM_LPAE is not set

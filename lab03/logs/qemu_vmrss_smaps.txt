@@ -1,0 +1,23 @@
+/ # leaky_app_arm >/dev/null & PID=$!; sleep 2; echo "--- TRUOC (pid $PID) ---";
+ grep -E "VmSize|VmRSS|RssAnon|VmData" /proc/$PID/status; grep -A8 "\[heap\]" /p
+roc/$PID/smaps | grep -E "heap|^Size|^Rss|^Private_Dirty"
+--- TRUOC (pid 66) ---
+VmSize:	    1680 kB
+VmRSS:	     152 kB
+RssAnon:	      32 kB
+VmData:	     196 kB
+00491000-004b3000 rw-p 00000000 00:00 0          [heap]
+Size:                136 kB
+Rss:                   8 kB
+/ # echo "--- SAU ---"; grep -E "VmSize|VmRSS|RssAnon|VmData" /proc/$PID/status;
+ grep -A8 "\[heap\]" /proc/$PID/smaps | grep -E "heap|^Size|^Rss|^Private_Dirty"
+; wait
+--- SAU ---
+VmSize:	    1680 kB
+VmRSS:	     152 kB
+RssAnon:	      32 kB
+VmData:	     196 kB
+00491000-004b3000 rw-p 00000000 00:00 0          [heap]
+Size:                136 kB
+Rss:                  28 kB
+[1]+  Done                       leaky_app_arm 1>/dev/null

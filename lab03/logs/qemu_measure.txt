@@ -1,0 +1,113 @@
+/ # echo "=== B.5 VmRSS leaky_app_arm ==="; leaky_app_arm & PID=$!; sleep 2; ech
+o "--- TRUOC (pid $PID) ---"; grep -E "VmSize|VmRSS|VmData|VmHeap" /proc/$PID/st
+atus; cat /proc/$PID/maps | head -20
+=== B.5 VmRSS leaky_app_arm ===
+=== Leaky App – LAB-03 Memory Analysis ===
+  [pause 5s] TRUOC khi cap phat - doc VmRSS lan 1
+--- TRUOC (pid 66) ---
+VmSize:	    1680 kB
+VmRSS:	     152 kB
+VmData:	     196 kB
+00470000-00471000 r-xp 00000000 00:02 227        /usr/bin/leaky_app_arm
+0048f000-00490000 r--p 0000f000 00:02 227        /usr/bin/leaky_app_arm
+00490000-00491000 rw-p 00010000 00:02 227        /usr/bin/leaky_app_arm
+00491000-004b3000 rw-p 00000000 00:00 0          [heap]
+76e20000-76f32000 r-xp 00000000 00:02 15         /lib/libc.so.6
+76f32000-76f4e000 ---p 00112000 00:02 15         /lib/libc.so.6
+76f4e000-76f50000 r--p 0011e000 00:02 15         /lib/libc.so.6
+76f50000-76f51000 rw-p 00120000 00:02 15         /lib/libc.so.6
+76f51000-76f5b000 rw-p 00000000 00:00 0 
+76f5f000-76f7b000 r-xp 00000000 00:02 14         /lib/ld-linux-armhf.so.3
+76f8c000-76f8e000 rw-p 00000000 00:00 0 
+76f8e000-76f8f000 r--p 0001f000 00:02 14         /lib/ld-linux-armhf.so.3
+76f8f000-76f90000 rw-p 00020000 00:02 14         /lib/ld-linux-armhf.so.3
+7ef84000-7efa5000 rw-p 00000000 00:00 0          [stack]
+7efe3000-7efe4000 r-xp 00000000 00:00 0          [sigpage]
+7efe4000-7efe5000 r--p 00000000 00:00 0          [vvar]
+7efe5000-7efe6000 r-xp 00000000 00:00 0          [vdso]
+ffff0000-ffff1000 r-xp 00000000 00:00 0          [vectors]
+/ # [1] Creating 100 records...
+[2] Deleting records (with leak)...
+[3] Processing messages (with leak)...
+  Processed: Message #0: data payload here
+  Processed: Message #10: data payload here
+  Processed: Message #20: data payload here
+  Processed: Message #30: data payload here
+  Processed: Message #40: data payload here
+  [pause 5s] SAU khi leak - doc VmRSS lan 2
+echo "--- SAU ---"; grep -E "VmSize|VmRSS|VmData|VmHeap" /proc/$PID/status; 
+grep heap /proc/$PID/maps; wait
+--- SAU ---
+VmSize:	    1680 kB
+VmRSS:	     152 kB
+VmData:	     196 kB
+00491000-004b3000 rw-p 00000000 00:00 0          [heap]
+Program finished – check valgrind output!
+[1]+  Done                       leaky_app_arm
+/ # echo "=== C.4 time perf_target_arm ==="; time perf_target_arm
+=== C.4 time perf_target_arm ===
+=== Perf Target App – LAB-03 ===
+[1] CPU-intensive computation...
+    Result: 11433083166.074631
+[2] Linear search (1000 times)...
+[3] I/O intensive (write 10000 lines)...
+Done.
+real	0m 1.40s
+user	0m 1.37s
+sys	0m 0.02s
+/ # echo "=== C.4 strace -c ==="; strace -c perf_target_arm > /dev/null
+=== C.4 strace -c ===
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 36.69    0.006787          96        70           write
+ 17.00    0.003145         314        10           mmap2
+  9.41    0.001740         290         6           mprotect
+  6.80    0.001258         209         6           munmap
+  6.75    0.001248         208         6         3 openat
+  6.19    0.001146         191         6         2 statx
+  2.96    0.000548         548         1           ugetrlimit
+  2.71    0.000502         250         2           read
+  2.13    0.000394         131         3           brk
+  2.04    0.000378         126         3           close
+  1.46    0.000271         271         1         1 getrandom
+  1.28    0.000236         236         1           set_tls
+  0.97    0.000180         180         1           set_robust_list
+  0.96    0.000178         178         1           clock_gettime64
+  0.90    0.000167         167         1           rseq
+  0.89    0.000164         164         1           set_tid_address
+  0.85    0.000157         157         1         1 ioctl
+  0.00    0.000000           0         1           execve
+  0.00    0.000000           0         1         1 access
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.018499         151       122         8 total
+/ # echo "=== C.4 strace -c -w ==="; strace -c -w perf_target_arm > /dev/null
+=== C.4 strace -c -w ===
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 65.47    0.071713        1024        70           write
+  5.53    0.006055         605        10           mmap2
+  4.96    0.005437        5437         1           execve
+  4.91    0.005377         896         6           munmap
+  3.87    0.004242         707         6         3 openat
+  3.64    0.003987         664         6         2 statx
+  2.59    0.002839         473         6           mprotect
+  2.06    0.002262         754         3           brk
+  1.64    0.001799         599         3           close
+  0.87    0.000952         952         1           clock_gettime64
+  0.84    0.000922         461         2           read
+  0.80    0.000878         878         1         1 getrandom
+  0.55    0.000597         597         1         1 access
+  0.46    0.000506         506         1           ugetrlimit
+  0.45    0.000492         492         1         1 ioctl
+  0.39    0.000427         427         1           set_tls
+  0.34    0.000367         367         1           set_tid_address
+  0.32    0.000354         354         1           set_robust_list
+  0.31    0.000335         335         1           rseq
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.109541         897       122         8 total
+/ # echo "=== C.4 write count ==="; strace -e trace=write perf_target_arm 2>&1 >
+/dev/null | grep -c "write(3"
+=== C.4 write count ===
+69
+/ # poweroff -f
+reboot: Power down

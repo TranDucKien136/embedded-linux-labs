@@ -1,0 +1,30 @@
+
+ Performance counter stats for '/home/kien/embedded_lab3/apps/perf_target':
+
+                 2      context-switches                 #     40.2 cs/sec  cs_per_second     
+                 2      cpu-migrations                   #     40.2 migrations/sec  migrations_per_second
+               379      page-faults                      #   7621.3 faults/sec  page_faults_per_second
+             49.73 msec task-clock                       #      0.9 CPUs  CPUs_utilized       
+             5,606      cpu_core/branch-misses/          #      0.0 %  branch_miss_rate         (98.38%)
+        52,717,866      cpu_core/branches/               #   1060.1 M/sec  branch_frequency     (98.38%)
+        78,896,786      cpu_core/cpu-cycles/             #      1.6 GHz  cycles_frequency       (98.38%)
+       381,443,190      cpu_core/instructions/           #      4.8 instructions  insn_per_cycle  (98.38%)
+           490,425      cpu_atom/branch-misses/          #      9.7 %  branch_miss_rate         (0.23%)
+         9,751,788      cpu_atom/branches/               #    196.1 M/sec  branch_frequency     (1.62%)
+        72,273,974      cpu_atom/cpu-cycles/             #      1.5 GHz  cycles_frequency       (1.62%)
+        53,265,260      cpu_atom/instructions/           #      0.7 instructions  insn_per_cycle  (1.62%)
+             TopdownL1 (cpu_core)                        #      0.4 %  tma_bad_speculation    
+                                                         #      5.9 %  tma_frontend_bound       (98.38%)
+                                                         #     12.1 %  tma_backend_bound      
+                                                         #     81.6 %  tma_retiring             (98.38%)
+             TopdownL1 (cpu_atom)                        #      nan %  tma_backend_bound        (0.00%)
+                                                         #      nan %  tma_frontend_bound       (0.00%)
+                                                         #      nan %  tma_bad_speculation    
+                                                         #      nan %  tma_retiring             (0.00%)
+
+       0.051186865 seconds time elapsed
+
+       0.049370000 seconds user
+       0.002057000 seconds sys
+
+

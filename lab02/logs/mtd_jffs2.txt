@@ -1,0 +1,148 @@
++ echo '=== C.2: Load nandsim va kiem tra MTD ==='
+=== C.2: Load nandsim va kiem tra MTD ===
++ modprobe nandsim first_id_byte=0x20 second_id_byte=0x35
++ modprobe mtdblock
++ modprobe jffs2
++ cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 02000000 00001000 "BIOS"
+mtd1: 02000000 00004000 "NAND simulator partition 0"
++ ls /dev/mtdblock0 /dev/mtdblock1
+/dev/mtdblock0
+/dev/mtdblock1
++ ls /dev/mtd /dev/mtd0 /dev/mtd0ro /dev/mtd1 /dev/mtd1ro /dev/mtdblock0 /dev/mtdblock1
+/dev/mtd0
+/dev/mtd0ro
+/dev/mtd1
+/dev/mtd1ro
+/dev/mtdblock0
+/dev/mtdblock1
+
+/dev/mtd:
+by-name
+++ grep 'NAND simulator partition 0' /proc/mtd
+++ sed -n 's/^mtd\([0-9]*\):.*/\1/p'
++ MTDNUM=1
++ '[' -z 1 ']'
++ MTDDEV=/dev/mtd1
++ MTDBLOCKDEV=/dev/mtdblock1
++ echo '=== Phat hien nandsim tai: /dev/mtd1 (/dev/mtdblock1) ==='
+=== Phat hien nandsim tai: /dev/mtd1 (/dev/mtdblock1) ===
++ echo '=== Thong tin MTD device ==='
+=== Thong tin MTD device ===
++ mtdinfo /dev/mtd1
+mtd1
+Name:                           NAND simulator partition 0
+Type:                           nand
+Eraseblock size:                16384 bytes, 16.0 KiB
+Amount of eraseblocks:          2048 (33554432 bytes, 32.0 MiB)
+Minimum input/output unit size: 512 bytes
+Sub-page size:                  256 bytes
+OOB size:                       16 bytes
+Character device major/minor:   90:2
+Bad blocks are allowed:         true
+Device is writable:             true
+
++ cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 02000000 00001000 "BIOS"
+mtd1: 02000000 00004000 "NAND simulator partition 0"
++ echo '=== C.3: Xoa va format JFFS2 ==='
+=== C.3: Xoa va format JFFS2 ===
++ flash_erase /dev/mtd1 0 0
+Erasing 32768 Kibyte @ 0 --  0 % complete Erasing 32768 Kibyte @ 0 -- 100 % complete 
++ mkdir -p /tmp/jffs2_data
++ echo 'Hello from JFFS2!'
++ echo 'Embedded Linux Lab2'
++ mkdir -p /tmp/jffs2_data/logs
++ date
++ mkfs.jffs2 --root=/tmp/jffs2_data --eraseblock=0x4000 --output=/tmp/rootfs.jffs2 --pad --no-cleanmarkers
++ ls -lh /tmp/rootfs.jffs2
+-rw-r--r-- 1 root root 16K Oct  6 20:31 /tmp/rootfs.jffs2
++ echo '=== Ghi JFFS2 image vao MTD ==='
+=== Ghi JFFS2 image vao MTD ===
++ nandwrite -p /dev/mtd1 /tmp/rootfs.jffs2
+Written 30 blocks containing only 0xff bytes
+Those block may be incorrectly treated as empty!
+Writing data to block 0 at offset 0x0
++ echo '=== C.4: Mount va thao tac voi JFFS2 ==='
+=== C.4: Mount va thao tac voi JFFS2 ===
++ mkdir -p /mnt/jffs2
++ mount -t jffs2 /dev/mtdblock1 /mnt/jffs2
++ ls -la /mnt/jffs2/
+total 4
+drwxr-xr-x 4 root root    0 Jan  1  1970 .
+drwxr-xr-x 3 root root 4096 Oct  6 20:24 ..
+-rw-r--r-- 1 root root   18 Oct  6 20:31 hello.txt
+-rw-r--r-- 1 root root   20 Oct  6 20:31 info.txt
+drwxr-xr-x 2 root root    0 Oct  6 20:31 logs
++ cat /mnt/jffs2/hello.txt
+Hello from JFFS2!
++ cat /mnt/jffs2/info.txt
+Embedded Linux Lab2
++ cat /mnt/jffs2/logs/boot.log
+Tue Oct  6 08:31:39 PM +07 2026
++ echo '=== Ghi them du lieu (test write) ==='
+=== Ghi them du lieu (test write) ===
++ sh -c 'echo "Written at $(date)" >> /mnt/jffs2/logs/boot.log'
++ sh -c 'echo "New runtime file" > /mnt/jffs2/runtime.txt'
++ cat /mnt/jffs2/logs/boot.log
+Tue Oct  6 08:31:39 PM +07 2026
+Written at Tue Oct  6 08:31:39 PM +07 2026
++ echo '=== Kiem tra persistence: umount roi mount lai ==='
+=== Kiem tra persistence: umount roi mount lai ===
++ umount /mnt/jffs2
++ mount -t jffs2 /dev/mtdblock1 /mnt/jffs2
++ echo '--- noi dung boot.log sau khi mount lai (phai con nguyen) ---'
+--- noi dung boot.log sau khi mount lai (phai con nguyen) ---
++ cat /mnt/jffs2/logs/boot.log
+Tue Oct  6 08:31:39 PM +07 2026
+Written at Tue Oct  6 08:31:39 PM +07 2026
++ echo '--- noi dung runtime.txt sau khi mount lai (phai con nguyen) ---'
+--- noi dung runtime.txt sau khi mount lai (phai con nguyen) ---
++ cat /mnt/jffs2/runtime.txt
+New runtime file
++ umount /mnt/jffs2
++ echo '=== C.5: Dump MTD raw data ==='
+=== C.5: Dump MTD raw data ===
++ nanddump -o -l 512 -f /tmp/dump.bin /dev/mtd1
+ECC failed: 0
+ECC corrected: 0
+Number of bad blocks: 0
+Number of bbt blocks: 0
+Block size 16384, page size 512, OOB size 16
+Dumping data starting at 0x00000000 and ending at 0x00000200...
++ hexdump -C /tmp/dump.bin
++ head -20
+00000000  85 19 01 e0 31 00 00 00  1d d9 82 42 01 00 00 00  |....1......B....|
+00000010  00 00 00 00 02 00 00 00  3b f8 c4 6a 09 08 00 00  |........;..j....|
+00000020  30 b3 8a 2c 15 da 69 f4  68 65 6c 6c 6f 2e 74 78  |0..,..i.hello.tx|
+00000030  74 ff ff ff 85 19 02 e0  56 00 00 00 09 64 e7 62  |t.......V....d.b|
+00000040  02 00 00 00 01 00 00 00  a4 81 00 00 00 00 00 00  |................|
+00000050  12 00 00 00 3b f8 c4 6a  3b f8 c4 6a 3b f8 c4 6a  |....;..j;..j;..j|
+00000060  00 00 00 00 12 00 00 00  12 00 00 00 00 00 00 00  |................|
+00000070  ee dd 4b b3 00 48 69 bf  48 65 6c 6c 6f 20 66 72  |..K..Hi.Hello fr|
+00000080  6f 6d 20 4a 46 46 53 32  21 0a ff ff 85 19 01 e0  |om JFFS2!.......|
+00000090  30 00 00 00 78 be 3e fa  01 00 00 00 01 00 00 00  |0...x.>.........|
+000000a0  03 00 00 00 3b f8 c4 6a  08 08 00 00 ab 09 fb a1  |....;..j........|
+000000b0  a9 de 79 72 69 6e 66 6f  2e 74 78 74 85 19 02 e0  |..yrinfo.txt....|
+000000c0  58 00 00 00 3a 13 38 82  03 00 00 00 01 00 00 00  |X...:.8.........|
+000000d0  a4 81 00 00 00 00 00 00  14 00 00 00 3b f8 c4 6a  |............;..j|
+000000e0  3b f8 c4 6a 3b f8 c4 6a  00 00 00 00 14 00 00 00  |;..j;..j........|
+000000f0  14 00 00 00 00 00 00 00  8a 74 43 dd 84 1f c5 e2  |.........tC.....|
+00000100  45 6d 62 65 64 64 65 64  20 4c 69 6e 75 78 20 4c  |Embedded Linux L|
+00000110  61 62 32 0a 85 19 01 e0  2c 00 00 00 5f 56 f1 e0  |ab2.....,..._V..|
+00000120  01 00 00 00 02 00 00 00  04 00 00 00 93 f6 c4 6a  |...............j|
+00000130  04 04 00 00 6e 95 f0 96  40 19 cb d1 6c 6f 67 73  |....n...@...logs|
++ echo '=== Cleanup - go nandsim ==='
+=== Cleanup - go nandsim ===
++ rmmod nandsim
++ ls /dev/mtd /dev/mtd0 /dev/mtd0ro /dev/mtdblock0
+/dev/mtd0
+/dev/mtd0ro
+/dev/mtdblock0
+
+/dev/mtd:
+by-name
++ set +x
+=== DONE: Phan C hoan tat ===

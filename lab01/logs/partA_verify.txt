@@ -1,0 +1,25 @@
+$ ls -lh arch/arm/boot/zImage arch/arm/boot/dts/vexpress-v2p-ca9.dtb
+-rw-rw-r-- 1 kien kien  14K Sep 19 08:25 arch/arm/boot/dts/vexpress-v2p-ca9.dtb
+-rwxrwxr-x 1 kien kien 4.9M Oct 12 16:49 arch/arm/boot/zImage
+
+$ file arch/arm/boot/zImage
+arch/arm/boot/zImage: Linux kernel ARM boot executable zImage (kernel >=v4.15) (little-endian)
+
+$ arm-linux-gnueabihf-readelf -A arch/arm/boot/compressed/vmlinux | grep -i 'arch\|cpu'
+  Tag_CPU_name: "7-A"
+  Tag_CPU_arch: v7
+  Tag_CPU_arch_profile: Application
+  Tag_CPU_unaligned_access: v6
+
+$ file vmlinux
+vmlinux: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, BuildID[sha1]=cc2488b53018499152d3106c747276fa51691407, with debug_info, not stripped
+
+$ find . -name "*.ko" | wc -l    (so module da build)
+0
+
+$ ls -lh ~/embedded_lab1/output/
+total 11M
+-rw-rw-r-- 1 kien kien 1.1M Sep 19 10:58 initramfs.cpio.gz
+-rwxrwxr-x 1 kien kien 4.2M Sep 19 09:28 u-boot
+-rw-rw-r-- 1 kien kien  14K Sep 19 09:18 vexpress-v2p-ca9.dtb
+-rwxrwxr-x 1 kien kien 4.9M Sep 19 09:18 zImage
