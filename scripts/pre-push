@@ -1,0 +1,6 @@
+#!/bin/bash
+# Git hook pre-push: chan push neu repo chua hoan chinh.
+# Cai dat: ln -sf ../../scripts/pre-push .git/hooks/pre-push
+# Bo qua tam thoi (khong khuyen khich): git push --no-verify
+echo ">>> pre-push: kiem tra repo truoc khi push..."
+exec "$(git rev-parse --show-toplevel)/scripts/check_repo.sh"

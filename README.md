@@ -46,3 +46,13 @@ qemu-system-arm -M vexpress-a9 -cpu cortex-a9 -m 512M -smp 2 -nographic \
   -kernel zImage -dtb vexpress-v2p-ca9.dtb -initrd initramfs.cpio.gz \
   -append 'console=ttyAMA0,115200 rdinit=/sbin/init mem=512M'
 ```
+
+## Kiểm tra trước khi push
+
+`scripts/check_repo.sh` kiểm tra: đủ file bắt buộc của từng lab, báo cáo có MD + PDF (PDF không cũ hơn MD),
+không có file nhị phân/file > 5 MB, không lộ token/khóa/email thật, link README không hỏng, commit dùng email noreply.
+
+```bash
+ln -sf ../../scripts/pre-push .git/hooks/pre-push   # cài hook: tự kiểm tra mỗi lần git push, có lỗi thì chặn
+./scripts/check_repo.sh                              # hoặc chạy tay
+```
