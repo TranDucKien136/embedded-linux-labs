@@ -1,0 +1,17 @@
+$ make
+asgn1_driver.c: In function 'asgn1_read':
+asgn1_driver.c:67:63: error: macro 'min' passed 3 arguments, but takes just 2
+   67 |     nbytes = min(size_t, count, (asgn1_drv.buffer_len - *ppos));
+      |                                                               ^
+In file included from ./include/linux/kernel.h:16,
+                 from ./include/linux/list.h:9,
+                 from ./include/linux/module.h:12,
+                 from asgn1_driver.c:1:
+./include/linux/minmax.h:45:9: note: macro 'min' defined here
+   45 | #define min(x, y)       __careful_cmp(x, y, <)
+      |         ^~~
+asgn1_driver.c:67:14: error: 'min' undeclared (first use in this function)
+   67 |     nbytes = min(size_t, count, (asgn1_drv.buffer_len - *ppos));
+      |              ^~~
+make[2]: *** [scripts/Makefile.build:277: asgn1_driver.o] Error 1
+make: *** [Makefile:11: all] Error 2

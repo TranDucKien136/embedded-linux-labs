@@ -1,0 +1,84 @@
+Breakpoint 1 at 0x4116: file processor_thread.c, line 94.
+Starting program: /home/kien/embedded_as2/SE183502_TranDucKien_Asgn02/app/sms_app_x86 -D /tmp/fake_sensor -d 15
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7bff6c0 (LWP 38126)]
+[New Thread 0x7ffff73fe6c0 (LWP 38127)]
+[New Thread 0x7ffff6bfd6c0 (LWP 38128)]
+[New Thread 0x7ffff63fc6c0 (LWP 38129)]
+[Switching to Thread 0x7ffff6bfd6c0 (LWP 38128)]
+
+Thread 4 "sms_app_x86" hit Breakpoint 1, processor_thread_func (arg=0x7fffffffd820) at processor_thread.c:94
+94	        if (d.temperature > a->temp_threshold) {
+  Id   Target Id                                       Frame 
+  1    Thread 0x7ffff7f9f740 (LWP 38068) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+  2    Thread 0x7ffff7bff6c0 (LWP 38126) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+  3    Thread 0x7ffff73fe6c0 (LWP 38127) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+* 4    Thread 0x7ffff6bfd6c0 (LWP 38128) "sms_app_x86" processor_thread_func (arg=0x7fffffffd820) at processor_thread.c:94
+  5    Thread 0x7ffff63fc6c0 (LWP 38129) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+
+Thread 5 (Thread 0x7ffff63fc6c0 (LWP 38129) "sms_app_x86"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+#1  0x00007ffff7ca030c in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=a5@entry=0, a6=a6@entry=0, nr=230) at ./nptl/cancellation.c:49
+#2  0x00007ffff7cf5af2 in __GI___clock_nanosleep (clock_id=<optimized out>, flags=<optimized out>, req=<optimized out>, rem=<optimized out>) at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:48
+#3  0x0000555555557b0d in sensor_thread_func (arg=0x7fffffffd860) at sensor_thread.c:191
+#4  0x00007ffff7ca3dfa in start_thread (arg=<optimized out>) at ./nptl/pthread_create.c:454
+#5  0x00007ffff7d375cc in __GI___clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 4 (Thread 0x7ffff6bfd6c0 (LWP 38128) "sms_app_x86"):
+#0  processor_thread_func (arg=0x7fffffffd820) at processor_thread.c:94
+#1  0x00007ffff7ca3dfa in start_thread (arg=<optimized out>) at ./nptl/pthread_create.c:454
+#2  0x00007ffff7d375cc in __GI___clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 3 (Thread 0x7ffff73fe6c0 (LWP 38127) "sms_app_x86"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+#1  0x00007ffff7ca039c in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=0, nr=243) at ./nptl/cancellation.c:49
+#2  __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=0, nr=243) at ./nptl/cancellation.c:75
+#3  0x00007ffff7caff3c in ___mq_timedreceive_time64 (mqdes=<optimized out>, msg_ptr=<optimized out>, msg_len=<optimized out>, msg_prio=<optimized out>, abs_timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/mq_timedreceive.c:35
+#4  0x000055555555846e in alert_thread_func (arg=0x0) at alert_thread.c:51
+#5  0x00007ffff7ca3dfa in start_thread (arg=<optimized out>) at ./nptl/pthread_create.c:454
+#6  0x00007ffff7d375cc in __GI___clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 2 (Thread 0x7ffff7bff6c0 (LWP 38126) "sms_app_x86"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+#1  0x00007ffff7ca039c in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=0, nr=243) at ./nptl/cancellation.c:49
+#2  __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=0, nr=243) at ./nptl/cancellation.c:75
+#3  0x00007ffff7caff3c in ___mq_timedreceive_time64 (mqdes=<optimized out>, msg_ptr=<optimized out>, msg_len=<optimized out>, msg_prio=<optimized out>, abs_timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/mq_timedreceive.c:35
+#4  0x00005555555588fc in logger_thread_func (arg=0x7fffffffd7e8) at logger_thread.c:87
+#5  0x00007ffff7ca3dfa in start_thread (arg=<optimized out>) at ./nptl/pthread_create.c:454
+#6  0x00007ffff7d375cc in __GI___clone3 () at ../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Thread 1 (Thread 0x7ffff7f9f740 (LWP 38068) "sms_app_x86"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+#1  0x00007ffff7ca030c in __internal_syscall_cancel (a1=a1@entry=0, a2=a2@entry=0, a3=a3@entry=140737488344912, a4=a4@entry=140737488344912, a5=a5@entry=0, a6=a6@entry=0, nr=230) at ./nptl/cancellation.c:49
+#2  0x00007ffff7cf5af2 in __GI___clock_nanosleep (clock_id=<optimized out>, clock_id@entry=0, flags=flags@entry=0, req=req@entry=0x7fffffffd750, rem=rem@entry=0x7fffffffd750) at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:48
+#3  0x00007ffff7d03707 in __GI___nanosleep (req=req@entry=0x7fffffffd750, rem=rem@entry=0x7fffffffd750) at ../sysdeps/unix/sysv/linux/nanosleep.c:25
+#4  0x00007ffff7d1aebe in __sleep (seconds=0) at ../sysdeps/posix/sleep.c:55
+#5  0x0000555555556f4a in main (argc=5, argv=0x7fffffffdc48) at sms_app.c:213
+$1 = {timestamp_ms = 1793366853599, temperature = 35.9000015, humidity = 73.3000031}
+$2 = {timestamp_ms = 1793366853599, temperature = 45, humidity = 73.3000031}
+Breakpoint 2 at 0x5555555584e2: file alert_thread.c, line 77.
+Continuing.
+[Thread 0x7ffff6bfd6c0 (LWP 38128) exited]
+[Thread 0x7ffff63fc6c0 (LWP 38129) exited]
+[Switching to Thread 0x7ffff73fe6c0 (LWP 38127)]
+
+Thread 3 "sms_app_x86" hit Breakpoint 2, alert_thread_func (arg=0x0) at alert_thread.c:77
+77	        counts[m.type]++;
+$3 = {type = ALARM_TEMP_HIGH, timestamp_ms = 1793366853599, value = 45, threshold = 40}
+$4 = 0x55555555a7c3 "TEMP_HIGH"
+85	                m.threshold);
+$5 = {1, 0, 0}
+  Id   Target Id                                       Frame 
+  1    Thread 0x7ffff7f9f740 (LWP 38068) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+  2    Thread 0x7ffff7bff6c0 (LWP 38126) "sms_app_x86" __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/x86_64/syscall_cancel.S:56
+* 3    Thread 0x7ffff73fe6c0 (LWP 38127) "sms_app_x86" alert_thread_func (arg=0x0) at alert_thread.c:85
+Continuing.
+[Thread 0x7ffff73fe6c0 (LWP 38127) exited]
+[Thread 0x7ffff7bff6c0 (LWP 38126) exited]
+[Inferior 1 (process 38068) exited normally]

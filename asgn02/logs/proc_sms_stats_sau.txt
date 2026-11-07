@@ -1,0 +1,5 @@
+# /proc/sms_stats sau khi sms_app ket thuc (exit=0)
+read_count       : 120
+last_temperature : 19.3 C
+last_humidity    : 88.0 %
+uptime           : 76 s

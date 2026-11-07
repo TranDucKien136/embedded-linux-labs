@@ -1,0 +1,686 @@
+Booting Linux on physical CPU 0x0
+Linux version 5.15.0 (kien@kien-Nitro-ANV15-52) (arm-linux-gnueabihf-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, GNU ld (GNU Binutils for Ubuntu) 2.46) #3 SMP PREEMPT Tue Oct 27 22:11:58 +07 2026
+CPU: ARMv7 Processor [410fc090] revision 0 (ARMv7), cr=10c5387d
+CPU: PIPT / VIPT nonaliasing data cache, VIPT nonaliasing instruction cache
+OF: fdt: Machine model: V2P-CA9
+Memory policy: Data cache writealloc
+Reserved memory: created DMA memory pool at 0x4c000000, size 8 MiB
+OF: reserved mem: initialized node vram@4c000000, compatible id shared-dma-pool
+cma: Reserved 16 MiB at 0x7f000000
+Zone ranges:
+  Normal   [mem 0x0000000060000000-0x000000007fffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000060000000-0x000000007fffffff]
+Initmem setup node 0 [mem 0x0000000060000000-0x000000007fffffff]
+percpu: Embedded 15 pages/cpu s30988 r8192 d22260 u61440
+Built 1 zonelists, mobility grouping on.  Total pages: 130048
+Kernel command line: console=ttyAMA0,115200 rdinit=/sbin/init mem=512M
+printk: log_buf_len individual max cpu contribution: 4096 bytes
+printk: log_buf_len total cpu_extra contributions: 12288 bytes
+printk: log_buf_len min size: 16384 bytes
+printk: log_buf_len: 32768 bytes
+printk: early log buf free: 14976(91%)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+Memory: 486068K/524288K available (8192K kernel code, 594K rwdata, 1788K rodata, 1024K init, 150K bss, 21836K reserved, 16384K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+trace event string verifier disabled
+rcu: Preemptible hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+	Trampoline variant of Tasks RCU enabled.
+rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+L2C: platform modifies aux control register: 0x02020000 -> 0x02420000
+L2C: DT/platform modifies aux control register: 0x02020000 -> 0x02420000
+L2C-310 enabling early BRESP for Cortex-A9
+L2C-310 full line of zeros enabled for Cortex-A9
+L2C-310 dynamic clock gating disabled, standby mode disabled
+L2C-310 cache controller enabled, 8 ways, 128 kB
+L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x46420001
+random: get_random_bytes called from start_kernel+0x4f8/0x6ac with crng_init=0
+sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+clocksource: arm,sp804: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275 ns
+Failed to initialize '/bus@40000000/motherboard-bus@40000000/iofpga@7,00000000/timer@12000': -22
+smp_twd: clock not found -2
+Console: colour dummy device 80x30
+Calibrating local timer... 96.82MHz.
+Calibrating delay loop... 1632.25 BogoMIPS (lpj=816128)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+CPU: Testing write buffer coherency: ok
+CPU0: Spectre v2: using BPIALL workaround
+CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+Setting up static identity map for 0x60100000 - 0x60100060
+rcu: Hierarchical SRCU implementation.
+smp: Bringing up secondary CPUs ...
+CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+CPU1: Spectre v2: using BPIALL workaround
+CPU2: failed to boot: -38
+CPU3: failed to boot: -38
+smp: Brought up 1 node, 2 CPUs
+SMP: Total of 2 processors activated (3388.41 BogoMIPS).
+CPU: All CPU(s) started in SVC mode.
+devtmpfs: initialized
+VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 0
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 256 KiB pool for atomic coherent allocations
+cpuidle: using governor ladder
+hw-breakpoint: debug architecture 0x4 unsupported.
+Serial: AMBA PL011 UART driver
+irq: type mismatch, failed to map hwirq-75 for interrupt-controller@1e001000!
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+Advanced Linux Sound Architecture Driver Initialized.
+clocksource: Switched to clocksource arm,sp804
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes, linear)
+TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+TCP bind hash table entries: 4096 (order: 3, 32768 bytes, linear)
+TCP: Hash tables configured (established 4096 bind 4096)
+UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+Unpacking initramfs...
+hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
+workingset: timestamp_bits=30 max_order=17 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+9p: Installing v9fs 9p2000 file system support
+io scheduler mq-deadline registered
+io scheduler kyber registered
+sii902x 0-0060: supply iovcc not found, using dummy regulator
+sii902x 0-0060: supply cvcc12 not found, using dummy regulator
+physmap-flash 40000000.flash: physmap platform flash device: [mem 0x40000000-0x43ffffff]
+40000000.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+Intel/Sharp Extended Query Table at 0x0031
+Using buffer write method
+physmap-flash 40000000.flash: physmap platform flash device: [mem 0x44000000-0x47ffffff]
+40000000.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+Intel/Sharp Extended Query Table at 0x0031
+Using buffer write method
+Concatenating MTD devices:
+(0): "40000000.flash"
+(1): "40000000.flash"
+into device "40000000.flash"
+Freeing initrd memory: 4812K
+physmap-flash 48000000.psram: physmap platform flash device: [mem 0x48000000-0x49ffffff]
+libphy: Fixed MDIO Bus: probed
+libphy: smsc911x-mdio: probed
+smsc911x 4e000000.ethernet eth0: MAC Address: 52:54:00:12:34:56
+isp1760 4f000000.usb: isp1760 bus width: 32, oc: digital
+isp1760 4f000000.usb: NXP ISP1760 USB Host Controller
+isp1760 4f000000.usb: new USB bus registered, assigned bus number 1
+isp1760 4f000000.usb: Scratch test failed. 0x00000000
+isp1760 4f000000.usb: can't setup: -19
+isp1760 4f000000.usb: USB bus 1 deregistered
+usbcore: registered new interface driver usb-storage
+ledtrig-cpu: registered to indicate activity on CPUs
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+NET: Registered PF_PACKET protocol family
+9pnet: Installing 9P2000 support
+Registering SWP/SWPB emulation handler
+aaci-pl041 10004000.aaci: ARM AC'97 Interface PL041 rev0 at 0x10004000, irq 32
+aaci-pl041 10004000.aaci: FIFO 512 entries
+mmci-pl18x 10005000.mmci: Got CD GPIO
+mmci-pl18x 10005000.mmci: Got WP GPIO
+mmci-pl18x 10005000.mmci: mmc0: PL181 manf 41 rev0 at 0x10005000 irq 33,34 (pio)
+10009000.uart: ttyAMA0 at MMIO 0x10009000 (irq = 37, base_baud = 0) is a PL011 rev1
+printk: console [ttyAMA0] enabled
+1000a000.uart: ttyAMA1 at MMIO 0x1000a000 (irq = 38, base_baud = 0) is a PL011 rev1
+1000b000.uart: ttyAMA2 at MMIO 0x1000b000 (irq = 39, base_baud = 0) is a PL011 rev1
+1000c000.uart: ttyAMA3 at MMIO 0x1000c000 (irq = 40, base_baud = 0) is a PL011 rev1
+rtc-pl031 10017000.rtc: registered as rtc0
+rtc-pl031 10017000.rtc: setting system clock to 2026-10-27T18:47:45 UTC (1793126865)
+amba 10020000.clcd: Fixing up cyclic dependency with 0-0039
+drm-clcd-pl111 10020000.clcd: DVI muxed to daughterboard 1 (core tile) CLCD
+drm-clcd-pl111 10020000.clcd: initializing Versatile Express PL111
+sii902x 0-0039: supply iovcc not found, using dummy regulator
+sii902x 0-0039: supply cvcc12 not found, using dummy regulator
+i2c i2c-0: Added multiplexed i2c bus 2
+drm-clcd-pl111 1001f000.clcd: assigned reserved memory node vram@4c000000
+drm-clcd-pl111 1001f000.clcd: using device-specific reserved memory
+drm-clcd-pl111 1001f000.clcd: core tile graphics present
+drm-clcd-pl111 1001f000.clcd: this device will be deactivated
+drm-clcd-pl111 1001f000.clcd: Versatile Express init failed - -19
+drm-clcd-pl111 10020000.clcd: DVI muxed to daughterboard 1 (core tile) CLCD
+drm-clcd-pl111 10020000.clcd: initializing Versatile Express PL111
+drm-clcd-pl111 10020000.clcd: found bridge on endpoint 0
+drm-clcd-pl111 10020000.clcd: Using non-panel bridge
+[drm] Initialized pl111 1.0.0 20170317 for 10020000.clcd on minor 0
+input: AT Raw Set 2 keyboard as /devices/platform/bus@40000000/bus@40000000:motherboard-bus@40000000/bus@40000000:motherboard-bus@40000000:iofpga@7,00000000/10006000.kmi/serio0/input/input0
+Console: switching to colour frame buffer device 128x48
+drm-clcd-pl111 10020000.clcd: [drm] fb0: pl111 frame buffer device
+ALSA device list:
+  #0: ARM AC'97 Interface PL041 rev0 at 0x10004000, irq 32
+Freeing unused kernel image (initmem) memory: 1024K
+Run /sbin/init as init process
+input: ImExPS/2 Generic Explorer Mouse as /devices/platform/bus@40000000/bus@40000000:motherboard-bus@40000000/bus@40000000:motherboard-bus@40000000:iofpga@7,00000000/10007000.kmi/serio1/input/input2
+Generic PHY 4e000000.ethernet-ffffffff:01: attached PHY driver (mii_bus:phy_addr=4e000000.ethernet-ffffffff:01, irq=POLL)
+smsc911x 4e000000.ethernet eth0: SMSC911x/921x identified at 0xa08b0000, IRQ: 30
+[ AS2 ] Boot xong. Module o /lib/modules/5.15.0/, app/script o /root/. Tools: gdbserver, strace
+
+Please press Enter to activate this console. random: fast init done
+
+/ # insmod /lib/modules/5.15.0/sms_sensor_driver.ko
+sms_sensor_driver: loading out-of-tree module taints kernel.
+sms_sensor: loaded, minor = 125
+/ # cat /proc/sms_stats
+read_count       : 0
+last_temperature : 0.0 C
+last_humidity    : 0.0 %
+uptime           : 7 s
+/ # /root/sms_app -v
+sms_sensor: interval set to 500 ms
+33539 T=43.6 H=30.4 avgT=43.6 avgH=30.4
+[ALERT][33539] TYPE: TEMP_HIGH VALUE: 43.6 THRESHOLD: 40.0
+[ALERT][34047] TYPE: TEMP_SPIKE VALUE: 12.0 THRESHOLD: 5.0
+34047 T=31.6 H=33.1 avgT=37.6 avgH=31.8
+[ALERT][34550] TYPE: HUMID_HIGH VALUE: 89.3 THRESHOLD: 80.0
+[ALERT][34550] TYPE: TEMP_SPIKE VALUE: 14.9 THRESHOLD: 5.0
+34550 T=16.7 H=89.3 avgT=30.6 avgH=50.9
+[ALERT][35052] TYPE: TEMP_SPIKE VALUE: 23.3 THRESHOLD: 5.0
+35052 T=40.0 H=67.1 avgT=33.0 avgH=55.0
+[ALERT][35554] TYPE: TEMP_SPIKE VALUE: 5.3 THRESHOLD: 5.0
+35554 T=34.7 H=43.1 avgT=33.3 avgH=52.6
+[ALERT][36056] TYPE: TEMP_SPIKE VALUE: 5.4 THRESHOLD: 5.0
+36056 T=29.3 H=33.8 avgT=32.6 avgH=49.5
+36558 T=31.9 H=30.7 avgT=32.5 avgH=46.8
+[ALERT][37059] TYPE: TEMP_HIGH VALUE: 42.3 THRESHOLD: 40.0
+[ALERT][37059] TYPE: TEMP_SPIKE VALUE: 10.4 THRESHOLD: 5.0
+37059 T=42.3 H=49.6 avgT=33.8 avgH=47.1
+[ALERT][37561] TYPE: TEMP_SPIKE VALUE: 13.2 THRESHOLD: 5.0
+37561 T=29.1 H=45.8 avgT=33.2 avgH=47.0
+[ALERT][38063] TYPE: TEMP_SPIKE VALUE: 13.9 THRESHOLD: 5.0
+38063 T=15.2 H=78.6 avgT=31.4 avgH=50.2
+38565 T=25.4 H=67.9 avgT=29.6 avgH=53.9
+[ALERT][38565] TYPE: TEMP_SPIKE VALUE: 10.2 THRESHOLD: 5.0
+39066 T=44.6 H=52.5 avgT=30.9 avgH=55.8
+[ALERT][39066] TYPE: TEMP_HIGH VALUE: 44.6 THRESHOLD: 40.0
+[ALERT][39066] TYPE: TEMP_SPIKE VALUE: 19.2 THRESHOLD: 5.0
+39567 T=40.4 H=37.2 avgT=33.3 avgH=50.6
+[ALERT][39567] TYPE: TEMP_HIGH VALUE: 40.4 THRESHOLD: 40.0
+40068 T=40.9 H=31.5 avgT=33.4 avgH=47.1
+[ALERT][40068] TYPE: TEMP_HIGH VALUE: 40.9 THRESHOLD: 40.0
+40570 T=32.7 H=35.9 avgT=33.2 avgH=46.3
+[ALERT][40570] TYPE: TEMP_SPIKE VALUE: 8.2 THRESHOLD: 5.0
+41071 T=30.3 H=62.4 avgT=33.3 avgH=49.2
+41572 T=30.7 H=56.4 avgT=33.2 avgH=51.8
+42073 T=39.1 H=82.1 avgT=32.8 avgH=55.0
+[ALERT][42073] TYPE: HUMID_HIGH VALUE: 82.1 THRESHOLD: 80.0
+[ALERT][42073] TYPE: TEMP_SPIKE VALUE: 8.4 THRESHOLD: 5.0
+42575 T=23.4 H=47.1 avgT=32.3 avgH=55.2
+[ALERT][42575] TYPE: TEMP_SPIKE VALUE: 15.7 THRESHOLD: 5.0
+43076 T=31.4 H=53.8 avgT=33.9 avgH=52.7
+[ALERT][43076] TYPE: TEMP_SPIKE VALUE: 8.0 THRESHOLD: 5.0
+43578 T=16.5 H=64.5 avgT=33.0 avgH=52.3
+[ALERT][43578] TYPE: TEMP_SPIKE VALUE: 14.9 THRESHOLD: 5.0
+44079 T=35.6 H=42.0 avgT=32.1 avgH=51.3
+[ALERT][44079] TYPE: TEMP_SPIKE VALUE: 19.1 THRESHOLD: 5.0
+44581 T=37.3 H=65.6 avgT=31.8 avgH=54.1
+45083 T=38.9 H=69.9 avgT=31.6 avgH=58.0
+[ALERT][45584] TYPE: TEMP_SPIKE VALUE: 13.3 THRESHOLD: 5.0
+45584 T=25.6 H=77.9 avgT=30.9 avgH=62.2
+[ALERT][46086] TYPE: TEMP_SPIKE VALUE: 7.0 THRESHOLD: 5.0
+46086 T=32.6 H=61.2 avgT=31.1 avgH=62.0
+[ALERT][46587] TYPE: TEMP_SPIKE VALUE: 5.4 THRESHOLD: 5.0
+46587 T=38.0 H=63.0 avgT=31.8 avgH=62.7
+47089 T=21.1 H=53.0 avgT=30.0 avgH=59.8
+[ALERT][47089] TYPE: TEMP_SPIKE VALUE: 16.9 THRESHOLD: 5.0
+47590 T=28.0 H=62.8 avgT=30.5 avgH=61.4
+[ALERT][47590] TYPE: TEMP_SPIKE VALUE: 6.9 THRESHOLD: 5.0
+48091 T=42.0 H=31.6 avgT=31.6 avgH=59.2
+[ALERT][48091] TYPE: TEMP_HIGH VALUE: 42.0 THRESHOLD: 40.0
+[ALERT][48091] TYPE: TEMP_SPIKE VALUE: 14.0 THRESHOLD: 5.0
+48593 T=22.9 H=60.8 avgT=32.2 avgH=58.8
+[ALERT][48593] TYPE: TEMP_SPIKE VALUE: 19.1 THRESHOLD: 5.0
+49094 T=39.2 H=42.7 avgT=32.6 avgH=58.8
+[ALERT][49094] TYPE: TEMP_SPIKE VALUE: 16.3 THRESHOLD: 5.0
+49597 T=44.8 H=30.2 avgT=33.3 avgH=55.3
+[ALERT][49597] TYPE: TEMP_HIGH VALUE: 44.8 THRESHOLD: 40.0
+[ALERT][49597] TYPE: TEMP_SPIKE VALUE: 5.6 THRESHOLD: 5.0
+50099 T=28.0 H=75.0 avgT=32.2 avgH=55.8
+[ALERT][50099] TYPE: TEMP_SPIKE VALUE: 16.8 THRESHOLD: 5.0
+50601 T=31.9 H=82.1 avgT=32.8 avgH=56.2
+[ALERT][50601] TYPE: HUMID_HIGH VALUE: 82.1 THRESHOLD: 80.0
+51103 T=38.7 H=39.8 avgT=33.5 avgH=54.1
+[ALERT][51103] TYPE: TEMP_SPIKE VALUE: 6.8 THRESHOLD: 5.0
+51604 T=31.3 H=64.5 avgT=32.8 avgH=54.2
+[ALERT][51604] TYPE: TEMP_SPIKE VALUE: 7.4 THRESHOLD: 5.0
+52106 T=32.8 H=38.2 avgT=34.0 avgH=52.8
+52607 T=25.3 H=43.8 avgT=33.7 avgH=50.9
+[ALERT][52607] TYPE: TEMP_SPIKE VALUE: 7.5 THRESHOLD: 5.0
+53109 T=17.1 H=36.0 avgT=31.2 avgH=51.3
+[ALERT][53109] TYPE: TEMP_SPIKE VALUE: 8.2 THRESHOLD: 5.0
+53610 T=42.1 H=35.0 avgT=33.1 avgH=48.7
+[ALERT][53610] TYPE: TEMP_HIGH VALUE: 42.1 THRESHOLD: 40.0
+[ALERT][53610] TYPE: TEMP_SPIKE VALUE: 25.0 THRESHOLD: 5.0
+54111 T=44.6 H=76.4 avgT=33.7 avgH=52.1
+[ALERT][54111] TYPE: TEMP_HIGH VALUE: 44.6 THRESHOLD: 40.0
+54614 T=40.5 H=47.9 avgT=33.2 avgH=53.9
+[ALERT][54614] TYPE: TEMP_HIGH VALUE: 40.5 THRESHOLD: 40.0
+55115 T=36.6 H=38.8 avgT=34.1 avgH=50.2
+55617 T=37.6 H=89.7 avgT=34.7 avgH=51.0
+[ALERT][55617] TYPE: HUMID_HIGH VALUE: 89.7 THRESHOLD: 80.0
+56118 T=34.3 H=35.8 avgT=34.2 avgH=50.6
+[ALERT][56620] TYPE: TEMP_SPIKE VALUE: 17.7 THRESHOLD: 5.0
+56620 T=16.6 H=38.4 avgT=32.8 avgH=48.0
+[ALERT][57122] TYPE: TEMP_SPIKE VALUE: 12.7 THRESHOLD: 5.0
+57122 T=29.3 H=33.9 avgT=32.4 avgH=47.6
+57623 T=30.6 H=72.8 avgT=32.9 avgH=50.5
+58124 T=16.3 H=59.4 avgT=32.8 avgH=52.8
+[ALERT][58124] TYPE: TEMP_SPIKE VALUE: 14.3 THRESHOLD: 5.0
+58626 T=41.2 H=73.9 avgT=32.8 avgH=56.7
+[ALERT][58626] TYPE: TEMP_HIGH VALUE: 41.2 THRESHOLD: 40.0
+[ALERT][58626] TYPE: TEMP_SPIKE VALUE: 24.9 THRESHOLD: 5.0
+59129 T=21.2 H=31.0 avgT=30.4 avgH=52.2
+[ALERT][59129] TYPE: TEMP_SPIKE VALUE: 20.0 THRESHOLD: 5.0
+59631 T=16.7 H=66.9 avgT=28.0 avgH=54.1
+[ALERT][60132] TYPE: TEMP_SPIKE VALUE: 15.4 THRESHOLD: 5.0
+60132 T=32.1 H=43.8 avgT=27.6 avgH=54.6
+[ALERT][60634] TYPE: TEMP_HIGH VALUE: 42.0 THRESHOLD: 40.0
+[ALERT][60634] TYPE: HUMID_HIGH VALUE: 84.4 THRESHOLD: 80.0
+60634 T=42.0 H=84.4 avgT=28.0 avgH=54.0
+[ALERT][60634] TYPE: TEMP_SPIKE VALUE: 9.9 THRESHOLD: 5.0
+61136 T=39.2 H=56.7 avgT=28.5 avgH=56.1
+61638 T=27.0 H=58.4 avgT=29.6 avgH=58.1
+[ALERT][61638] TYPE: TEMP_SPIKE VALUE: 12.2 THRESHOLD: 5.0
+62140 T=18.5 H=40.2 avgT=28.5 avgH=58.8
+[ALERT][62140] TYPE: TEMP_SPIKE VALUE: 8.5 THRESHOLD: 5.0
+62641 T=43.9 H=44.7 avgT=29.8 avgH=55.9
+[ALERT][62641] TYPE: TEMP_HIGH VALUE: 43.9 THRESHOLD: 40.0
+[ALERT][62641] TYPE: TEMP_SPIKE VALUE: 25.4 THRESHOLD: 5.0
+63142 T=35.1 H=76.8 avgT=31.7 avgH=57.7
+[ALERT][63142] TYPE: TEMP_SPIKE VALUE: 8.8 THRESHOLD: 5.0
+63644 T=22.1 H=73.3 avgT=29.8 avgH=57.6
+[ALERT][63644] TYPE: TEMP_SPIKE VALUE: 13.0 THRESHOLD: 5.0
+64146 T=22.5 H=65.0 avgT=29.9 avgH=61.0
+64648 T=21.4 H=77.0 avgT=30.4 avgH=62.0
+65149 T=37.8 H=75.9 avgT=31.0 avgH=65.2
+[ALERT][65149] TYPE: TEMP_SPIKE VALUE: 16.4 THRESHOLD: 5.0
+65650 T=42.7 H=50.6 avgT=31.0 avgH=61.9
+[ALERT][65650] TYPE: TEMP_HIGH VALUE: 42.7 THRESHOLD: 40.0
+66152 T=24.0 H=43.4 avgT=29.5 avgH=60.5
+[ALERT][66152] TYPE: TEMP_SPIKE VALUE: 18.7 THRESHOLD: 5.0
+66653 T=44.9 H=34.2 avgT=31.3 avgH=58.1
+[ALERT][66653] TYPE: TEMP_HIGH VALUE: 44.9 THRESHOLD: 40.0
+[ALERT][66653] TYPE: TEMP_SPIKE VALUE: 20.9 THRESHOLD: 5.0
+67155 T=43.1 H=57.7 avgT=33.8 avgH=59.9
+[ALERT][67155] TYPE: TEMP_HIGH VALUE: 43.1 THRESHOLD: 40.0
+67656 T=21.7 H=85.2 avgT=31.5 avgH=63.9
+[ALERT][67656] TYPE: HUMID_HIGH VALUE: 85.2 THRESHOLD: 80.0
+[ALERT][67656] TYPE: TEMP_SPIKE VALUE: 21.4 THRESHOLD: 5.0
+68158 T=44.5 H=34.5 avgT=32.5 avgH=59.7
+[ALERT][68158] TYPE: TEMP_HIGH VALUE: 44.5 THRESHOLD: 40.0
+[ALERT][68158] TYPE: TEMP_SPIKE VALUE: 22.8 THRESHOLD: 5.0
+68660 T=25.3 H=50.2 avgT=32.8 avgH=57.4
+[ALERT][68660] TYPE: TEMP_SPIKE VALUE: 19.2 THRESHOLD: 5.0
+69162 T=16.6 H=53.0 avgT=32.2 avgH=56.2
+[ALERT][69162] TYPE: TEMP_SPIKE VALUE: 8.7 THRESHOLD: 5.0
+69663 T=22.5 H=72.6 avgT=32.3 avgH=55.7
+[ALERT][69663] TYPE: TEMP_SPIKE VALUE: 5.9 THRESHOLD: 5.0
+70165 T=27.5 H=36.9 avgT=31.3 avgH=51.8
+70666 T=32.3 H=30.3 avgT=30.2 avgH=49.8
+71167 T=38.9 H=90.0 avgT=31.7 avgH=54.5
+[ALERT][71167] TYPE: HUMID_HIGH VALUE: 90.0 THRESHOLD: 80.0
+[ALERT][71167] TYPE: TEMP_SPIKE VALUE: 6.6 THRESHOLD: 5.0
+71668 T=35.8 H=70.4 avgT=30.8 avgH=58.1
+[ALERT][72169] TYPE: TEMP_HIGH VALUE: 42.0 THRESHOLD: 40.0
+72169 T=42.0 H=58.8 avgT=30.7 avgH=58.2
+[ALERT][72169] TYPE: TEMP_SPIKE VALUE: 6.2 THRESHOLD: 5.0
+72670 T=29.0 H=55.9 avgT=31.4 avgH=55.3
+[ALERT][72670] TYPE: TEMP_SPIKE VALUE: 13.0 THRESHOLD: 5.0
+[ALERT][73171] TYPE: TEMP_HIGH VALUE: 41.1 THRESHOLD: 40.0
+73171 T=41.1 H=78.8 avgT=31.1 avgH=59.7
+[ALERT][73171] TYPE: TEMP_SPIKE VALUE: 12.1 THRESHOLD: 5.0
+[ALERT][73673] TYPE: HUMID_HIGH VALUE: 83.2 THRESHOLD: 80.0
+[ALERT][73673] TYPE: TEMP_SPIKE VALUE: 25.6 THRESHOLD: 5.0
+73673 T=15.5 H=83.2 avgT=30.1 avgH=63.0
+74174 T=27.8 H=42.4 avgT=31.2 avgH=61.9
+[ALERT][74174] TYPE: TEMP_SPIKE VALUE: 12.3 THRESHOLD: 5.0
+74675 T=39.8 H=77.2 avgT=33.0 avgH=62.4
+[ALERT][74675] TYPE: TEMP_SPIKE VALUE: 12.0 THRESHOLD: 5.0
+[ALERT][75177] TYPE: TEMP_HIGH VALUE: 44.8 THRESHOLD: 40.0
+75177 T=44.8 H=87.3 avgT=34.7 avgH=67.4
+[ALERT][75177] TYPE: HUMID_HIGH VALUE: 87.3 THRESHOLD: 80.0
+75678 T=30.8 H=53.4 avgT=34.6 avgH=69.7
+[ALERT][75678] TYPE: TEMP_SPIKE VALUE: 14.0 THRESHOLD: 5.0
+76180 T=26.4 H=35.7 avgT=33.3 avgH=64.3
+[ALERT][76682] TYPE: TEMP_SPIKE VALUE: 6.6 THRESHOLD: 5.0
+76682 T=33.0 H=54.7 avgT=33.0 avgH=62.7
+77183 T=37.9 H=63.6 avgT=32.6 avgH=63.2
+77684 T=39.8 H=53.6 avgT=33.7 avgH=63.0
+78186 T=23.9 H=53.5 avgT=32.0 avgH=60.5
+[ALERT][78186] TYPE: TEMP_SPIKE VALUE: 15.9 THRESHOLD: 5.0
+78687 T=21.1 H=72.6 avgT=32.5 avgH=59.4
+79189 T=16.7 H=74.7 avgT=31.4 avgH=62.6
+79690 T=16.0 H=85.3 avgT=29.0 avgH=63.4
+[ALERT][79690] TYPE: HUMID_HIGH VALUE: 85.3 THRESHOLD: 80.0
+80191 T=19.8 H=57.6 avgT=26.5 avgH=60.5
+80692 T=32.0 H=43.0 avgT=26.7 avgH=59.4
+[ALERT][80692] TYPE: TEMP_SPIKE VALUE: 12.2 THRESHOLD: 5.0
+81194 T=34.6 H=76.5 avgT=27.5 avgH=63.5
+81695 T=21.6 H=89.4 avgT=26.3 avgH=67.0
+[ALERT][81695] TYPE: HUMID_HIGH VALUE: 89.4 THRESHOLD: 80.0
+[ALERT][81695] TYPE: TEMP_SPIKE VALUE: 13.0 THRESHOLD: 5.0
+82197 T=30.7 H=30.2 avgT=25.6 avgH=63.6
+[ALERT][82197] TYPE: TEMP_SPIKE VALUE: 9.1 THRESHOLD: 5.0
+82698 T=22.3 H=66.8 avgT=23.9 avgH=65.0
+[ALERT][82698] TYPE: TEMP_SPIKE VALUE: 8.4 THRESHOLD: 5.0
+83200 T=37.8 H=57.5 avgT=25.3 avgH=65.4
+[ALERT][83200] TYPE: TEMP_SPIKE VALUE: 15.5 THRESHOLD: 5.0
+83701 T=20.3 H=48.6 avgT=25.2 avgH=63.0
+[ALERT][83701] TYPE: TEMP_SPIKE VALUE: 17.5 THRESHOLD: 5.0
+84203 T=19.4 H=42.6 avgT=25.5 avgH=59.8
+84704 T=35.3 H=84.2 avgT=27.4 avgH=59.6
+[ALERT][84704] TYPE: HUMID_HIGH VALUE: 84.2 THRESHOLD: 80.0
+[ALERT][84704] TYPE: TEMP_SPIKE VALUE: 15.9 THRESHOLD: 5.0
+85206 T=32.8 H=34.3 avgT=28.7 avgH=57.3
+85707 T=29.5 H=76.3 avgT=28.4 avgH=60.6
+86208 T=17.5 H=88.9 avgT=26.7 avgH=61.9
+[ALERT][86208] TYPE: HUMID_HIGH VALUE: 88.9 THRESHOLD: 80.0
+[ALERT][86208] TYPE: TEMP_SPIKE VALUE: 12.0 THRESHOLD: 5.0
+86710 T=17.2 H=46.6 avgT=26.3 avgH=57.6
+87211 T=33.0 H=80.2 avgT=26.5 avgH=62.6
+[ALERT][87211] TYPE: HUMID_HIGH VALUE: 80.2 THRESHOLD: 80.0
+[ALERT][87211] TYPE: TEMP_SPIKE VALUE: 15.8 THRESHOLD: 5.0
+87713 T=31.7 H=66.0 avgT=27.5 avgH=62.5
+88214 T=25.3 H=77.5 avgT=26.2 avgH=64.5
+[ALERT][88214] TYPE: TEMP_SPIKE VALUE: 6.4 THRESHOLD: 5.0
+88716 T=35.5 H=47.5 avgT=27.7 avgH=64.4
+[ALERT][88716] TYPE: TEMP_SPIKE VALUE: 10.2 THRESHOLD: 5.0
+89218 T=29.1 H=61.2 avgT=28.7 avgH=66.3
+[ALERT][89218] TYPE: TEMP_SPIKE VALUE: 6.4 THRESHOLD: 5.0
+89719 T=15.8 H=36.6 avgT=26.7 avgH=61.5
+[ALERT][89719] TYPE: TEMP_SPIKE VALUE: 13.3 THRESHOLD: 5.0
+[ALERT][90220] TYPE: TEMP_SPIKE VALUE: 13.4 THRESHOLD: 5.0
+90220 T=29.2 H=31.9 avgT=26.4 avgH=61.3
+90722 T=17.0 H=79.1 avgT=25.1 avgH=61.5
+[ALERT][90722] TYPE: TEMP_SPIKE VALUE: 12.2 THRESHOLD: 5.0
+91223 T=24.7 H=50.8 avgT=25.9 avgH=57.7
+[ALERT][91223] TYPE: TEMP_SPIKE VALUE: 7.7 THRESHOLD: 5.0
+91724 T=40.6 H=86.3 avgT=28.2 avgH=61.7
+[ALERT][91724] TYPE: TEMP_HIGH VALUE: 40.6 THRESHOLD: 40.0
+[ALERT][91724] TYPE: HUMID_HIGH VALUE: 86.3 THRESHOLD: 80.0
+[ALERT][91724] TYPE: TEMP_SPIKE VALUE: 15.9 THRESHOLD: 5.0
+92226 T=37.0 H=49.7 avgT=28.6 avgH=58.7
+92727 T=32.5 H=57.7 avgT=28.7 avgH=57.8
+93229 T=41.3 H=35.2 avgT=30.3 avgH=53.6
+[ALERT][93229] TYPE: TEMP_HIGH VALUE: 41.3 THRESHOLD: 40.0
+[ALERT][93229] TYPE: TEMP_SPIKE VALUE: 8.8 THRESHOLD: 5.0
+
+Alert summary:
+TEMP_HIGH: 22
+HUMID_HIGH: 15
+TEMP_SPIKE: 79
+
+========== THONG BAO TONG KET ==========
+Uptime:           60 seconds
+Samples produced: 120
+Samples consumed: 120
+Buffer overflows: 0
+Samples remaining: 0
+=================================
+/ # cat /proc/sms_stats
+read_count       : 120
+last_temperature : 41.3 C
+last_humidity    : 35.2 %
+uptime           : 107 s
+/ # cat /tmp/sms.log
+[2026-10-27 18:48:16] 33539 T=43.6 H=30.4 avgT=43.6 avgH=30.4
+[2026-10-27 18:48:16] ALERT TEMP_HIGH value=43.6
+[2026-10-27 18:48:16] ALERT TEMP_SPIKE value=12.0
+[2026-10-27 18:48:16] 34047 T=31.6 H=33.1 avgT=37.6 avgH=31.8
+[2026-10-27 18:48:17] ALERT HUMID_HIGH value=89.3
+[2026-10-27 18:48:17] ALERT TEMP_SPIKE value=14.9
+[2026-10-27 18:48:17] 34550 T=16.7 H=89.3 avgT=30.6 avgH=50.9
+[2026-10-27 18:48:17] ALERT TEMP_SPIKE value=23.3
+[2026-10-27 18:48:17] 35052 T=40.0 H=67.1 avgT=33.0 avgH=55.0
+[2026-10-27 18:48:18] ALERT TEMP_SPIKE value=5.3
+[2026-10-27 18:48:18] 35554 T=34.7 H=43.1 avgT=33.3 avgH=52.6
+[2026-10-27 18:48:18] ALERT TEMP_SPIKE value=5.4
+[2026-10-27 18:48:18] 36056 T=29.3 H=33.8 avgT=32.6 avgH=49.5
+[2026-10-27 18:48:19] 36558 T=31.9 H=30.7 avgT=32.5 avgH=46.8
+[2026-10-27 18:48:19] ALERT TEMP_HIGH value=42.3
+[2026-10-27 18:48:19] ALERT TEMP_SPIKE value=10.4
+[2026-10-27 18:48:19] 37059 T=42.3 H=49.6 avgT=33.8 avgH=47.1
+[2026-10-27 18:48:20] ALERT TEMP_SPIKE value=13.2
+[2026-10-27 18:48:20] 37561 T=29.1 H=45.8 avgT=33.2 avgH=47.0
+[2026-10-27 18:48:20] 38063 T=15.2 H=78.6 avgT=31.4 avgH=50.2
+[2026-10-27 18:48:20] ALERT TEMP_SPIKE value=13.9
+[2026-10-27 18:48:21] 38565 T=25.4 H=67.9 avgT=29.6 avgH=53.9
+[2026-10-27 18:48:21] ALERT TEMP_SPIKE value=10.2
+[2026-10-27 18:48:21] 39066 T=44.6 H=52.5 avgT=30.9 avgH=55.8
+[2026-10-27 18:48:21] ALERT TEMP_HIGH value=44.6
+[2026-10-27 18:48:21] ALERT TEMP_SPIKE value=19.2
+[2026-10-27 18:48:22] 39567 T=40.4 H=37.2 avgT=33.3 avgH=50.6
+[2026-10-27 18:48:22] ALERT TEMP_HIGH value=40.4
+[2026-10-27 18:48:22] 40068 T=40.9 H=31.5 avgT=33.4 avgH=47.1
+[2026-10-27 18:48:22] ALERT TEMP_HIGH value=40.9
+[2026-10-27 18:48:23] 40570 T=32.7 H=35.9 avgT=33.2 avgH=46.3
+[2026-10-27 18:48:23] ALERT TEMP_SPIKE value=8.2
+[2026-10-27 18:48:23] 41071 T=30.3 H=62.4 avgT=33.3 avgH=49.2
+[2026-10-27 18:48:24] 41572 T=30.7 H=56.4 avgT=33.2 avgH=51.8
+[2026-10-27 18:48:24] 42073 T=39.1 H=82.1 avgT=32.8 avgH=55.0
+[2026-10-27 18:48:24] ALERT HUMID_HIGH value=82.1
+[2026-10-27 18:48:24] ALERT TEMP_SPIKE value=8.4
+[2026-10-27 18:48:25] 42575 T=23.4 H=47.1 avgT=32.3 avgH=55.2
+[2026-10-27 18:48:25] ALERT TEMP_SPIKE value=15.7
+[2026-10-27 18:48:25] 43076 T=31.4 H=53.8 avgT=33.9 avgH=52.7
+[2026-10-27 18:48:25] ALERT TEMP_SPIKE value=8.0
+[2026-10-27 18:48:26] 43578 T=16.5 H=64.5 avgT=33.0 avgH=52.3
+[2026-10-27 18:48:26] ALERT TEMP_SPIKE value=14.9
+[2026-10-27 18:48:26] 44079 T=35.6 H=42.0 avgT=32.1 avgH=51.3
+[2026-10-27 18:48:26] ALERT TEMP_SPIKE value=19.1
+[2026-10-27 18:48:27] 44581 T=37.3 H=65.6 avgT=31.8 avgH=54.1
+[2026-10-27 18:48:27] 45083 T=38.9 H=69.9 avgT=31.6 avgH=58.0
+[2026-10-27 18:48:28] 45584 T=25.6 H=77.9 avgT=30.9 avgH=62.2
+[2026-10-27 18:48:28] ALERT TEMP_SPIKE value=13.3
+[2026-10-27 18:48:28] 46086 T=32.6 H=61.2 avgT=31.1 avgH=62.0
+[2026-10-27 18:48:28] ALERT TEMP_SPIKE value=7.0
+[2026-10-27 18:48:29] 46587 T=38.0 H=63.0 avgT=31.8 avgH=62.7
+[2026-10-27 18:48:29] ALERT TEMP_SPIKE value=5.4
+[2026-10-27 18:48:29] 47089 T=21.1 H=53.0 avgT=30.0 avgH=59.8
+[2026-10-27 18:48:29] ALERT TEMP_SPIKE value=16.9
+[2026-10-27 18:48:30] 47590 T=28.0 H=62.8 avgT=30.5 avgH=61.4
+[2026-10-27 18:48:30] ALERT TEMP_SPIKE value=6.9
+[2026-10-27 18:48:30] 48091 T=42.0 H=31.6 avgT=31.6 avgH=59.2
+[2026-10-27 18:48:30] ALERT TEMP_HIGH value=42.0
+[2026-10-27 18:48:30] ALERT TEMP_SPIKE value=14.0
+[2026-10-27 18:48:31] 48593 T=22.9 H=60.8 avgT=32.2 avgH=58.8
+[2026-10-27 18:48:31] ALERT TEMP_SPIKE value=19.1
+[2026-10-27 18:48:31] 49094 T=39.2 H=42.7 avgT=32.6 avgH=58.8
+[2026-10-27 18:48:31] ALERT TEMP_SPIKE value=16.3
+[2026-10-27 18:48:32] 49597 T=44.8 H=30.2 avgT=33.3 avgH=55.3
+[2026-10-27 18:48:32] ALERT TEMP_HIGH value=44.8
+[2026-10-27 18:48:32] ALERT TEMP_SPIKE value=5.6
+[2026-10-27 18:48:32] 50099 T=28.0 H=75.0 avgT=32.2 avgH=55.8
+[2026-10-27 18:48:32] ALERT TEMP_SPIKE value=16.8
+[2026-10-27 18:48:33] 50601 T=31.9 H=82.1 avgT=32.8 avgH=56.2
+[2026-10-27 18:48:33] ALERT HUMID_HIGH value=82.1
+[2026-10-27 18:48:33] 51103 T=38.7 H=39.8 avgT=33.5 avgH=54.1
+[2026-10-27 18:48:33] ALERT TEMP_SPIKE value=6.8
+[2026-10-27 18:48:34] 51604 T=31.3 H=64.5 avgT=32.8 avgH=54.2
+[2026-10-27 18:48:34] ALERT TEMP_SPIKE value=7.4
+[2026-10-27 18:48:34] 52106 T=32.8 H=38.2 avgT=34.0 avgH=52.8
+[2026-10-27 18:48:35] 52607 T=25.3 H=43.8 avgT=33.7 avgH=50.9
+[2026-10-27 18:48:35] ALERT TEMP_SPIKE value=7.5
+[2026-10-27 18:48:35] 53109 T=17.1 H=36.0 avgT=31.2 avgH=51.3
+[2026-10-27 18:48:35] ALERT TEMP_SPIKE value=8.2
+[2026-10-27 18:48:36] 53610 T=42.1 H=35.0 avgT=33.1 avgH=48.7
+[2026-10-27 18:48:36] ALERT TEMP_HIGH value=42.1
+[2026-10-27 18:48:36] ALERT TEMP_SPIKE value=25.0
+[2026-10-27 18:48:36] 54111 T=44.6 H=76.4 avgT=33.7 avgH=52.1
+[2026-10-27 18:48:36] ALERT TEMP_HIGH value=44.6
+[2026-10-27 18:48:37] 54614 T=40.5 H=47.9 avgT=33.2 avgH=53.9
+[2026-10-27 18:48:37] ALERT TEMP_HIGH value=40.5
+[2026-10-27 18:48:37] 55115 T=36.6 H=38.8 avgT=34.1 avgH=50.2
+[2026-10-27 18:48:38] 55617 T=37.6 H=89.7 avgT=34.7 avgH=51.0
+[2026-10-27 18:48:38] ALERT HUMID_HIGH value=89.7
+[2026-10-27 18:48:38] 56118 T=34.3 H=35.8 avgT=34.2 avgH=50.6
+[2026-10-27 18:48:39] 56620 T=16.6 H=38.4 avgT=32.8 avgH=48.0
+[2026-10-27 18:48:39] ALERT TEMP_SPIKE value=17.7
+[2026-10-27 18:48:39] ALERT TEMP_SPIKE value=12.7
+[2026-10-27 18:48:39] 57122 T=29.3 H=33.9 avgT=32.4 avgH=47.6
+[2026-10-27 18:48:40] 57623 T=30.6 H=72.8 avgT=32.9 avgH=50.5
+[2026-10-27 18:48:40] 58124 T=16.3 H=59.4 avgT=32.8 avgH=52.8
+[2026-10-27 18:48:40] ALERT TEMP_SPIKE value=14.3
+[2026-10-27 18:48:41] 58626 T=41.2 H=73.9 avgT=32.8 avgH=56.7
+[2026-10-27 18:48:41] ALERT TEMP_HIGH value=41.2
+[2026-10-27 18:48:41] ALERT TEMP_SPIKE value=24.9
+[2026-10-27 18:48:41] 59129 T=21.2 H=31.0 avgT=30.4 avgH=52.2
+[2026-10-27 18:48:41] ALERT TEMP_SPIKE value=20.0
+[2026-10-27 18:48:42] 59631 T=16.7 H=66.9 avgT=28.0 avgH=54.1
+[2026-10-27 18:48:42] 60132 T=32.1 H=43.8 avgT=27.6 avgH=54.6
+[2026-10-27 18:48:42] ALERT TEMP_SPIKE value=15.4
+[2026-10-27 18:48:43] ALERT TEMP_HIGH value=42.0
+[2026-10-27 18:48:43] ALERT HUMID_HIGH value=84.4
+[2026-10-27 18:48:43] 60634 T=42.0 H=84.4 avgT=28.0 avgH=54.0
+[2026-10-27 18:48:43] ALERT TEMP_SPIKE value=9.9
+[2026-10-27 18:48:43] 61136 T=39.2 H=56.7 avgT=28.5 avgH=56.1
+[2026-10-27 18:48:44] 61638 T=27.0 H=58.4 avgT=29.6 avgH=58.1
+[2026-10-27 18:48:44] ALERT TEMP_SPIKE value=12.2
+[2026-10-27 18:48:44] 62140 T=18.5 H=40.2 avgT=28.5 avgH=58.8
+[2026-10-27 18:48:44] ALERT TEMP_SPIKE value=8.5
+[2026-10-27 18:48:45] 62641 T=43.9 H=44.7 avgT=29.8 avgH=55.9
+[2026-10-27 18:48:45] ALERT TEMP_HIGH value=43.9
+[2026-10-27 18:48:45] ALERT TEMP_SPIKE value=25.4
+[2026-10-27 18:48:45] 63142 T=35.1 H=76.8 avgT=31.7 avgH=57.7
+[2026-10-27 18:48:45] ALERT TEMP_SPIKE value=8.8
+[2026-10-27 18:48:46] 63644 T=22.1 H=73.3 avgT=29.8 avgH=57.6
+[2026-10-27 18:48:46] ALERT TEMP_SPIKE value=13.0
+[2026-10-27 18:48:46] 64146 T=22.5 H=65.0 avgT=29.9 avgH=61.0
+[2026-10-27 18:48:47] 64648 T=21.4 H=77.0 avgT=30.4 avgH=62.0
+[2026-10-27 18:48:47] 65149 T=37.8 H=75.9 avgT=31.0 avgH=65.2
+[2026-10-27 18:48:47] ALERT TEMP_SPIKE value=16.4
+[2026-10-27 18:48:48] 65650 T=42.7 H=50.6 avgT=31.0 avgH=61.9
+[2026-10-27 18:48:48] ALERT TEMP_HIGH value=42.7
+[2026-10-27 18:48:48] 66152 T=24.0 H=43.4 avgT=29.5 avgH=60.5
+[2026-10-27 18:48:48] ALERT TEMP_SPIKE value=18.7
+[2026-10-27 18:48:49] 66653 T=44.9 H=34.2 avgT=31.3 avgH=58.1
+[2026-10-27 18:48:49] ALERT TEMP_HIGH value=44.9
+[2026-10-27 18:48:49] ALERT TEMP_SPIKE value=20.9
+[2026-10-27 18:48:49] 67155 T=43.1 H=57.7 avgT=33.8 avgH=59.9
+[2026-10-27 18:48:49] ALERT TEMP_HIGH value=43.1
+[2026-10-27 18:48:50] 67656 T=21.7 H=85.2 avgT=31.5 avgH=63.9
+[2026-10-27 18:48:50] ALERT HUMID_HIGH value=85.2
+[2026-10-27 18:48:50] ALERT TEMP_SPIKE value=21.4
+[2026-10-27 18:48:50] 68158 T=44.5 H=34.5 avgT=32.5 avgH=59.7
+[2026-10-27 18:48:50] ALERT TEMP_HIGH value=44.5
+[2026-10-27 18:48:50] ALERT TEMP_SPIKE value=22.8
+[2026-10-27 18:48:51] 68660 T=25.3 H=50.2 avgT=32.8 avgH=57.4
+[2026-10-27 18:48:51] ALERT TEMP_SPIKE value=19.2
+[2026-10-27 18:48:51] 69162 T=16.6 H=53.0 avgT=32.2 avgH=56.2
+[2026-10-27 18:48:51] ALERT TEMP_SPIKE value=8.7
+[2026-10-27 18:48:52] 69663 T=22.5 H=72.6 avgT=32.3 avgH=55.7
+[2026-10-27 18:48:52] ALERT TEMP_SPIKE value=5.9
+[2026-10-27 18:48:52] 70165 T=27.5 H=36.9 avgT=31.3 avgH=51.8
+[2026-10-27 18:48:53] 70666 T=32.3 H=30.3 avgT=30.2 avgH=49.8
+[2026-10-27 18:48:53] 71167 T=38.9 H=90.0 avgT=31.7 avgH=54.5
+[2026-10-27 18:48:53] ALERT HUMID_HIGH value=90.0
+[2026-10-27 18:48:53] ALERT TEMP_SPIKE value=6.6
+[2026-10-27 18:48:54] 71668 T=35.8 H=70.4 avgT=30.8 avgH=58.1
+[2026-10-27 18:48:54] 72169 T=42.0 H=58.8 avgT=30.7 avgH=58.2
+[2026-10-27 18:48:54] ALERT TEMP_HIGH value=42.0
+[2026-10-27 18:48:54] ALERT TEMP_SPIKE value=6.2
+[2026-10-27 18:48:55] 72670 T=29.0 H=55.9 avgT=31.4 avgH=55.3
+[2026-10-27 18:48:55] ALERT TEMP_SPIKE value=13.0
+[2026-10-27 18:48:55] 73171 T=41.1 H=78.8 avgT=31.1 avgH=59.7
+[2026-10-27 18:48:55] ALERT TEMP_HIGH value=41.1
+[2026-10-27 18:48:55] ALERT TEMP_SPIKE value=12.1
+[2026-10-27 18:48:56] 73673 T=15.5 H=83.2 avgT=30.1 avgH=63.0
+[2026-10-27 18:48:56] ALERT HUMID_HIGH value=83.2
+[2026-10-27 18:48:56] ALERT TEMP_SPIKE value=25.6
+[2026-10-27 18:48:56] 74174 T=27.8 H=42.4 avgT=31.2 avgH=61.9
+[2026-10-27 18:48:56] ALERT TEMP_SPIKE value=12.3
+[2026-10-27 18:48:57] 74675 T=39.8 H=77.2 avgT=33.0 avgH=62.4
+[2026-10-27 18:48:57] ALERT TEMP_SPIKE value=12.0
+[2026-10-27 18:48:57] ALERT TEMP_HIGH value=44.8
+[2026-10-27 18:48:57] 75177 T=44.8 H=87.3 avgT=34.7 avgH=67.4
+[2026-10-27 18:48:57] ALERT HUMID_HIGH value=87.3
+[2026-10-27 18:48:58] 75678 T=30.8 H=53.4 avgT=34.6 avgH=69.7
+[2026-10-27 18:48:58] ALERT TEMP_SPIKE value=14.0
+[2026-10-27 18:48:58] 76180 T=26.4 H=35.7 avgT=33.3 avgH=64.3
+[2026-10-27 18:48:59] ALERT TEMP_SPIKE value=6.6
+[2026-10-27 18:48:59] 76682 T=33.0 H=54.7 avgT=33.0 avgH=62.7
+[2026-10-27 18:48:59] 77183 T=37.9 H=63.6 avgT=32.6 avgH=63.2
+[2026-10-27 18:49:00] 77684 T=39.8 H=53.6 avgT=33.7 avgH=63.0
+[2026-10-27 18:49:00] 78186 T=23.9 H=53.5 avgT=32.0 avgH=60.5
+[2026-10-27 18:49:00] ALERT TEMP_SPIKE value=15.9
+[2026-10-27 18:49:01] 78687 T=21.1 H=72.6 avgT=32.5 avgH=59.4
+[2026-10-27 18:49:01] 79189 T=16.7 H=74.7 avgT=31.4 avgH=62.6
+[2026-10-27 18:49:02] 79690 T=16.0 H=85.3 avgT=29.0 avgH=63.4
+[2026-10-27 18:49:02] ALERT HUMID_HIGH value=85.3
+[2026-10-27 18:49:02] 80191 T=19.8 H=57.6 avgT=26.5 avgH=60.5
+[2026-10-27 18:49:03] 80692 T=32.0 H=43.0 avgT=26.7 avgH=59.4
+[2026-10-27 18:49:03] ALERT TEMP_SPIKE value=12.2
+[2026-10-27 18:49:03] 81194 T=34.6 H=76.5 avgT=27.5 avgH=63.5
+[2026-10-27 18:49:04] 81695 T=21.6 H=89.4 avgT=26.3 avgH=67.0
+[2026-10-27 18:49:04] ALERT HUMID_HIGH value=89.4
+[2026-10-27 18:49:04] ALERT TEMP_SPIKE value=13.0
+[2026-10-27 18:49:04] 82197 T=30.7 H=30.2 avgT=25.6 avgH=63.6
+[2026-10-27 18:49:04] ALERT TEMP_SPIKE value=9.1
+[2026-10-27 18:49:05] 82698 T=22.3 H=66.8 avgT=23.9 avgH=65.0
+[2026-10-27 18:49:05] ALERT TEMP_SPIKE value=8.4
+[2026-10-27 18:49:05] 83200 T=37.8 H=57.5 avgT=25.3 avgH=65.4
+[2026-10-27 18:49:05] ALERT TEMP_SPIKE value=15.5
+[2026-10-27 18:49:06] 83701 T=20.3 H=48.6 avgT=25.2 avgH=63.0
+[2026-10-27 18:49:06] ALERT TEMP_SPIKE value=17.5
+[2026-10-27 18:49:06] 84203 T=19.4 H=42.6 avgT=25.5 avgH=59.8
+[2026-10-27 18:49:07] 84704 T=35.3 H=84.2 avgT=27.4 avgH=59.6
+[2026-10-27 18:49:07] ALERT HUMID_HIGH value=84.2
+[2026-10-27 18:49:07] ALERT TEMP_SPIKE value=15.9
+[2026-10-27 18:49:07] 85206 T=32.8 H=34.3 avgT=28.7 avgH=57.3
+[2026-10-27 18:49:08] 85707 T=29.5 H=76.3 avgT=28.4 avgH=60.6
+[2026-10-27 18:49:08] 86208 T=17.5 H=88.9 avgT=26.7 avgH=61.9
+[2026-10-27 18:49:08] ALERT HUMID_HIGH value=88.9
+[2026-10-27 18:49:08] ALERT TEMP_SPIKE value=12.0
+[2026-10-27 18:49:09] 86710 T=17.2 H=46.6 avgT=26.3 avgH=57.6
+[2026-10-27 18:49:09] 87211 T=33.0 H=80.2 avgT=26.5 avgH=62.6
+[2026-10-27 18:49:09] ALERT HUMID_HIGH value=80.2
+[2026-10-27 18:49:09] ALERT TEMP_SPIKE value=15.8
+[2026-10-27 18:49:10] 87713 T=31.7 H=66.0 avgT=27.5 avgH=62.5
+[2026-10-27 18:49:10] 88214 T=25.3 H=77.5 avgT=26.2 avgH=64.5
+[2026-10-27 18:49:10] ALERT TEMP_SPIKE value=6.4
+[2026-10-27 18:49:11] 88716 T=35.5 H=47.5 avgT=27.7 avgH=64.4
+[2026-10-27 18:49:11] ALERT TEMP_SPIKE value=10.2
+[2026-10-27 18:49:11] 89218 T=29.1 H=61.2 avgT=28.7 avgH=66.3
+[2026-10-27 18:49:11] ALERT TEMP_SPIKE value=6.4
+[2026-10-27 18:49:12] 89719 T=15.8 H=36.6 avgT=26.7 avgH=61.5
+[2026-10-27 18:49:12] ALERT TEMP_SPIKE value=13.3
+[2026-10-27 18:49:12] 90220 T=29.2 H=31.9 avgT=26.4 avgH=61.3
+[2026-10-27 18:49:12] ALERT TEMP_SPIKE value=13.4
+[2026-10-27 18:49:13] 90722 T=17.0 H=79.1 avgT=25.1 avgH=61.5
+[2026-10-27 18:49:13] ALERT TEMP_SPIKE value=12.2
+[2026-10-27 18:49:13] 91223 T=24.7 H=50.8 avgT=25.9 avgH=57.7
+[2026-10-27 18:49:13] ALERT TEMP_SPIKE value=7.7
+[2026-10-27 18:49:14] 91724 T=40.6 H=86.3 avgT=28.2 avgH=61.7
+[2026-10-27 18:49:14] ALERT TEMP_HIGH value=40.6
+[2026-10-27 18:49:14] ALERT HUMID_HIGH value=86.3
+[2026-10-27 18:49:14] ALERT TEMP_SPIKE value=15.9
+[2026-10-27 18:49:14] 92226 T=37.0 H=49.7 avgT=28.6 avgH=58.7
+[2026-10-27 18:49:15] 92727 T=32.5 H=57.7 avgT=28.7 avgH=57.8
+[2026-10-27 18:49:15] 93229 T=41.3 H=35.2 avgT=30.3 avgH=53.6
+[2026-10-27 18:49:15] ALERT TEMP_HIGH value=41.3
+[2026-10-27 18:49:15] ALERT TEMP_SPIKE value=8.8
+/ # poweroff -f
+Flash device refused suspend due to active operation (state 20)
+Flash device refused suspend due to active operation (state 20)
+reboot: Power down

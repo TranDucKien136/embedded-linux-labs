@@ -1,0 +1,5 @@
+# /proc/sms_stats tai T=30s
+read_count       : 60
+last_temperature : 32.5 C
+last_humidity    : 61.5 %
+uptime           : 46 s

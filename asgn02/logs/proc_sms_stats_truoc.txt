@@ -1,0 +1,5 @@
+# /proc/sms_stats truoc khi chay sms_app (QEMU, -i 500 -d 60)
+read_count       : 0
+last_temperature : 0.0 C
+last_humidity    : 0.0 %
+uptime           : 15 s

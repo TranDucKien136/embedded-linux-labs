@@ -27,6 +27,14 @@ REQ=(
   lab03/logs/gdb_session.txt lab03/logs/valgrind_report.txt lab03/logs/valgrind_fixed.txt
   lab03/logs/strace_summary.txt lab03/logs/perf_report.txt lab03/logs/perf_stat.txt
   lab03/logs/hist_standard.txt lab03/logs/latency_histogram.png
+  asgn01/task1_ioctl/{asgn1_driver.c,asgn1_ioctl.h,Makefile,test_asgn1.sh}
+  asgn01/task2_misc/{counter_driver.c,Makefile,test_counter.sh}
+  asgn01/logs/{test_asgn1_output.txt,test_counter_output.txt,dmesg_full.txt}
+  asgn02/driver/{sms_sensor_driver.c,sms_sensor.h,Makefile}
+  asgn02/app/{sms_app.c,Makefile}
+  asgn02/app/{sensor,processor,alert,logger}_thread.{c,h}
+  asgn02/app/circular_buffer.{c,h}
+  asgn02/logs/{sms_sample_run.txt,sms.log,valgrind_sms.txt,strace_sms.txt,perf_sms.txt,jitter_report.txt}
 )
 miss=0; for f in "${REQ[@]}"; do tracked "$f" || { fail "thieu $f"; miss=1; }; done
 [ $miss = 0 ] && ok "du ${#REQ[@]} file bat buoc"

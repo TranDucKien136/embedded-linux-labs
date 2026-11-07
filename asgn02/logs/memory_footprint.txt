@@ -1,0 +1,14 @@
+# sms_app ARM tren QEMU, -i 500 -d 60. VmSize/VmRSS: /proc/PID/status. Rss: /proc/PID/smaps_rollup
+=== T=5 ===
+VmSize:       35596 kB
+VmRSS:           4 kB
+Rss:                 544 kB
+=== T=30 ===
+VmSize:       35596 kB
+VmRSS:           4 kB
+Rss:                 544 kB
+=== T=55 ===
+VmSize:       35596 kB
+VmRSS:           4 kB
+Rss:                 544 kB
+exit=0

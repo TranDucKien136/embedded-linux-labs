@@ -1,0 +1,15 @@
+==28669== Memcheck, a memory error detector
+==28669== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==28669== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==28669== Command: ./sms_app_x86 -D /tmp/fake_sensor
+==28669== Parent PID: 28668
+==28669== 
+==28669== 
+==28669== HEAP SUMMARY:
+==28669==     in use at exit: 0 bytes in 0 blocks
+==28669==   total heap usage: 23 allocs, 23 frees, 174,079 bytes allocated
+==28669== 
+==28669== All heap blocks were freed -- no leaks are possible
+==28669== 
+==28669== For lists of detected and suppressed errors, rerun with: -s
+==28669== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

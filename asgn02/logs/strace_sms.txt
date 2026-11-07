@@ -1,0 +1,41 @@
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- -------------------
+ 38.72    0.707068        7769        91           clock_nanosleep
+ 32.56    0.594613        3539       168           mq_timedreceive
+ 18.08    0.330085        1675       197         5 futex
+  3.33    0.060843         139       437           clock_gettime64
+  2.76    0.050444         300       168           mq_timedsend
+  1.31    0.023871         367        65           write
+  1.13    0.020619         343        60           read
+  0.83    0.015203         133       114           _llseek
+  0.18    0.003196         188        17           rt_sigprocmask
+  0.17    0.003056        3056         1           execve
+  0.13    0.002388         597         4           clone3
+  0.12    0.002180        2180         1           readlinkat
+  0.09    0.001730         576         3         1 openat
+  0.08    0.001540         308         5           set_robust_list
+  0.08    0.001530         218         7           mq_open
+  0.07    0.001364         194         7           mprotect
+  0.07    0.001210         302         4           munmap
+  0.05    0.000855         213         4         2 mq_unlink
+  0.04    0.000816         163         5           rseq
+  0.04    0.000797         132         6           mmap2
+  0.04    0.000659         131         5         1 madvise
+  0.03    0.000529          58         9           close
+  0.02    0.000436         436         1           ioctl
+  0.02    0.000325         325         1           ugetrlimit
+  0.01    0.000223         223         1           sched_getparam
+  0.01    0.000208         104         2           rt_sigaction
+  0.01    0.000149          29         5           brk
+  0.01    0.000123         123         1         1 getrandom
+  0.01    0.000115         115         1           sched_getscheduler
+  0.00    0.000000           0         1           set_tid_address
+  0.00    0.000000           0         2           statx
+  0.00    0.000000           0         1           set_tls
+------ ----------- ----------- --------- --------- -------------------
+100.00    1.826175        1310      1394        10 total
+
+# time /root/sms_app -i 500 -d 30 (chay rieng, khong strace)
+real    0m 30.51s
+user    0m 0.03s
+sys    0m 0.10s

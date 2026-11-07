@@ -1,0 +1,12 @@
+# Nhat ky loi AS2 (dung cho bao cao: Muc 2 race condition da phat hien + Reflection)
+
+| Ngay | Trieu chung | Nguyen nhan | Cach debug | Cach sua |
+|---|---|---|---|---|
+| 27/10 | Build ARM: `undefined reference to __aeabi_ldivmod` | Chia so 64-bit (s64) tren ARM 32-bit, kernel khong co ham ho tro cua libgcc | Doc thong bao linker | Dung `div_s64()` |
+| 28/10 | Jitter SCHED_FIFO rat cao, gan bang SCHED_OTHER | Driver lay moc `last_read_ms = now` moi lan doc nen lech dan, read() bi cho them, deadline cua app bi tre | So sanh jitter truoc/sau (`logs/jitter_before_fix.txt`) | Tien moc theo luoi: `last_read_ms += interval_ms`, chi dat lai = now khi tre qua 2 chu ky |
+| 28/10 | Host: `pthread_create` tra EAGAIN | `mlockall(MCL_FUTURE)` + gioi han RLIMIT_MEMLOCK khien khong cap duoc stack thread | Doc ma loi, thu bo mlockall | Chi goi mlockall khi co `-r` |
+| 30/10 | Sensor loi (khong co device) nhung app van `exit=0` va chay het thoi gian | Thread sensor return ma khong bao cho main | Chay `-D /khong/ton/tai; echo $?` | Them `error` vao `sensor_args`; dat `a->error = 1; *a->running = 0;` o 6 duong loi |
+| 30/10 | Valgrind: `mq_timedsend(msg_ptr) points to uninitialised byte(s)`, 15 errors (`raw/2026-10-30_valgrind_truoc_fix.log`) | `mq_send` gui du 256 byte, `snprintf` chi ghi den `\0`; `alarm_msg` co 4 byte padding sau enum | `--track-origins=yes` chi ra bien stack trong `processor_thread_func` | `memset` struct truoc khi dien du lieu (3 cho) -> 0 errors |
+| 30/10 | `fake_sensor.sh` sinh timestamp 19 chu so | `date` ban uutils bo qua `%3N` | So sanh voi `/tmp/sms.log` | `$(( $(date +%s%N) / 1000000 ))` |
+| 30/10 | GDB: `set variable d.temperature = 45.0` tai processor_thread.c:94 nhung `TEMP_HIGH` khong tang (mau sau moi bao TEMP_SPIKE 14.9) | Ban `-O2` da nap gia tri vao thanh ghi truoc dong 94, doi o nho khong anh huong phep so sanh | Chay thu, so sanh alert summary giua -O2 va -O0 | Build rieng `-O0 -g` khi debug, xong build lai `-O2` |
+| 30/10 | `sudo perf record`: `logger_thread: fopen: Permission denied`, alert dung sau 6 canh bao, het 30s app treo khong in tong ket, Ctrl+C khong thoat | Goc: `/tmp/sms.log` thuoc user kien trong /tmp co sticky bit, `fs.protected_regular=2` cam root mo. Treo: Logger chet, queue `/sms_log` (maxmsg 10) day, `mq_send` cua Processor/Alert block mai mai nen `pthread_join` khong xong | `pgrep` thay process con song, doc `cat /proc/sys/fs/protected_regular`, doc thu tu shutdown trong main | Mo thu log file trong main truoc khi tao thread, loi thi `return 1`; xoa `/tmp/sms.log` truoc khi chay sudo |
